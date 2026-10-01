@@ -78,14 +78,25 @@ h2{
 }
 
 .hero{
-  background:linear-gradient(180deg,#eaf5ec,#f5f8f5);
+  min-height:560px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
   text-align:center;
-  padding-top:80px;
-  padding-bottom:80px;
+  padding:90px 20px;
+  background:
+    radial-gradient(circle at top left,#dff2e3 0%,transparent 45%),
+    linear-gradient(135deg,#f4faf5 0%,#e5f2e8 100%);
+  position:relative;
+  overflow:hidden;
 }
 
 .hero h2{
-  font-size:36px;
+  font-size:52px;
+  line-height:1.12;
+  letter-spacing:-1.5px;
+  color:#123d28;
+  margin-bottom:25px;
 }
 
 .hero p{
