@@ -2,715 +2,745 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>document.documentElement.className+=' js';</script>
+
 <title>Pradip Babu Khadka | Agriculture Blog</title>
+<meta name="description" content="Agriculture blog by Pradip Babu Khadka, an AFU Nepal student, on agro-biodiversity, sustainable farming, climate resilience and traditional food.">
+<meta name="author" content="Pradip Babu Khadka">
+<meta name="theme-color" content="#1b4d33">
+<meta name="robots" content="index, follow">
+
+<!-- Open Graph / social sharing.
+     Optional: once the site is live, add absolute-URL tags such as
+     <meta property="og:image" content="https://YOUR-DOMAIN/IMG_0134.jpeg">
+     <meta property="og:url" content="https://YOUR-DOMAIN/">
+     <link rel="canonical" href="https://YOUR-DOMAIN/"> -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Pradip Babu Khadka | Agriculture Blog">
+<meta property="og:description" content="Agro-biodiversity, sustainable farming, climate resilience and traditional food, written from Nepal.">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="ne_NP">
+<meta name="twitter:card" content="summary">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8C%BE%3C/text%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Hind:wght@400;500;600;700&family=Noto+Serif+Devanagari:wght@600;700&display=swap">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "name": "Pradip Babu Khadka",
+      "jobTitle": "B.Sc. Agriculture student",
+      "affiliation": { "@type": "CollegeOrUniversity", "name": "Agriculture and Forestry University, Nepal" },
+      "knowsAbout": ["Agro-biodiversity", "Sustainable agriculture", "Climate resilience", "Agricultural development"]
+    },
+    {
+      "@type": "Blog",
+      "name": "Pradip Babu Khadka | Agriculture Blog",
+      "inLanguage": ["en", "ne"],
+      "author": { "@type": "Person", "name": "Pradip Babu Khadka" }
+    }
+  ]
+}
+</script>
+
+<noscript><style>.post[hidden]{display:block!important}</style></noscript>
 
 <style>
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
+/* ---------- Tokens ---------- */
+:root{
+  --bg:#f4f7f0;
+  --sage:#e3ecdb;
+  --surface:#ffffff;
+  --ink:#162319;
+  --muted:#4a5a4f;
+  --line:#d6dfd0;
+  --green:#1b4d33;
+  --green-dark:#12361f;
+  --leaf:#2e7a4c;
+  --marigold:#e8a317;
+  --soil:#7a5a3a;
+
+  --serif:"Fraunces","Noto Serif Devanagari",Georgia,"Times New Roman",serif;
+  --sans:"Hind","Noto Sans Devanagari",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+
+  --radius-lg:18px;
+  --radius-sm:8px;
+  --wrap:1120px;
 }
 
-html{
-  scroll-behavior:smooth;
-}
-
+/* ---------- Base ---------- */
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
 body{
-  font-family:Arial,sans-serif;
-  line-height:1.7;
-  color:#26352a;
-  background:#f5f8f5;
+  margin:0;
+  font-family:var(--sans);
+  font-size:1.0625rem;
+  line-height:1.75;
+  color:var(--ink);
+  background:var(--bg);
+}
+img{max-width:100%;height:auto;display:block}
+h1,h2,h3,h4{font-family:var(--serif);color:var(--green-dark);line-height:1.25;margin:0}
+p{margin:0}
+a{color:var(--leaf)}
+ul,ol{margin:0}
+
+.wrap{width:min(100% - 40px,var(--wrap));margin-inline:auto}
+
+:focus-visible{outline:3px solid var(--green-dark);outline-offset:3px;border-radius:4px}
+.contact :focus-visible,.site-footer :focus-visible{outline-color:#fff}
+
+.skip{
+  position:absolute;left:12px;top:-60px;z-index:200;
+  background:var(--green-dark);color:#fff;padding:10px 16px;border-radius:var(--radius-sm);
+  text-decoration:none;font-weight:600;
+}
+.skip:focus{top:12px}
+
+/* ---------- Header / navigation ---------- */
+.site-header{
+  position:sticky;top:0;z-index:100;
+  background:rgba(244,247,240,.94);
+  -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.bar{display:flex;align-items:center;justify-content:space-between;min-height:64px;gap:16px}
+.brand{
+  font-family:var(--serif);font-weight:700;font-size:1.15rem;
+  color:var(--green-dark);text-decoration:none;letter-spacing:-.01em;
+}
+.nav-list{display:flex;gap:6px;list-style:none;padding:0;margin:0;flex-wrap:wrap}
+.nav-list a{
+  display:block;padding:8px 12px;border-radius:var(--radius-sm);
+  color:var(--green-dark);text-decoration:none;font-weight:600;font-size:.95rem;
+}
+.nav-list a:hover{background:var(--sage)}
+
+.menu-btn{
+  display:none;align-items:center;gap:8px;
+  font:inherit;font-weight:600;font-size:.95rem;color:var(--green-dark);
+  background:transparent;border:1px solid var(--green);border-radius:var(--radius-sm);
+  padding:8px 14px;cursor:pointer;
 }
 
-header{
-  background:linear-gradient(135deg,#123d28,#2f7d4a);
-  color:white;
-  padding:70px 20px;
-  text-align:center;
+@media (max-width:760px){
+  .js .menu-btn{display:inline-flex}
+  .js #site-nav{
+    display:none;position:absolute;left:0;right:0;top:100%;
+    background:var(--bg);border-bottom:1px solid var(--line);
+    padding:8px 20px 16px;
+  }
+  .js #site-nav.is-open{display:block}
+  .js .nav-list{flex-direction:column;gap:2px}
+  .js .nav-list a{padding:12px 10px}
+  html:not(.js) .bar{flex-direction:column;align-items:flex-start;padding:10px 0}
 }
 
-header h1{
-  font-size:42px;
-  margin-bottom:10px;
-  letter-spacing:-1px;
+/* ---------- Buttons & links ---------- */
+.btn{
+  display:inline-block;padding:13px 24px;border-radius:var(--radius-sm);
+  background:var(--green);color:#fff;text-decoration:none;font-weight:700;
+  border:2px solid var(--green);transition:background-color .2s;
+}
+.btn:hover{background:var(--green-dark);border-color:var(--green-dark)}
+.btn-ghost{background:transparent;color:var(--green-dark)}
+.btn-ghost:hover{background:var(--sage);border-color:var(--green)}
+.btn-light{background:#fff;color:var(--green-dark);border-color:#fff}
+.btn-light:hover{background:var(--sage);border-color:var(--sage)}
+
+.link{font-weight:700;color:var(--green);text-underline-offset:4px}
+
+/* ---------- Hero ---------- */
+.hero{background:var(--sage);padding-block:clamp(40px,7vw,88px) 0}
+.hero-grid{display:grid;gap:40px;align-items:center}
+.hero h1{
+  font-size:clamp(2.4rem,6.4vw,4.3rem);
+  line-height:1.06;letter-spacing:-.025em;font-weight:700;
+}
+.hero-lead{margin-top:20px;max-width:34em;font-size:1.15rem;color:var(--muted)}
+.hero-actions{margin-top:28px;display:flex;flex-wrap:wrap;gap:12px}
+
+.hero-card{
+  position:relative;background:var(--surface);
+  border:1px solid var(--line);border-radius:var(--radius-lg);overflow:hidden;
+  box-shadow:0 18px 40px -24px rgba(18,54,31,.45);
+}
+.hero-card img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.hero-card-body{padding:22px 24px 26px}
+.hero-card h2{font-size:1.4rem}
+.hero-card h2 a{color:inherit;text-decoration:none}
+.hero-card h2 a::after{content:"";position:absolute;inset:0}
+.hero-card h2 a:focus-visible{outline:none}
+.hero-card:focus-within{outline:3px solid var(--green-dark);outline-offset:3px}
+.hero-card p{margin-top:8px;color:var(--muted);font-size:1rem}
+
+.strata{display:block;width:100%;height:56px;margin-top:clamp(36px,6vw,64px)}
+
+@media (min-width:900px){
+  .hero-grid{grid-template-columns:1.1fr .9fr;gap:64px}
 }
 
-header p{
-  font-size:18px;
-  opacity:.9;
+/* ---------- Sections ---------- */
+.section{padding-block:clamp(52px,7vw,92px)}
+.section h2.title{font-size:clamp(1.8rem,3.6vw,2.4rem);letter-spacing:-.015em}
+.section-intro{margin-top:10px;color:var(--muted);max-width:40em}
+.section,.post{scroll-margin-top:72px}
+
+/* About */
+.about-grid{display:grid;gap:24px;border-top:3px solid var(--marigold);padding-top:32px}
+.about-copy p+p{margin-top:1em}
+.facts{margin:28px 0 0;display:grid;gap:16px}
+.facts dt{font-weight:700;color:var(--green-dark)}
+.facts dd{margin:0;color:var(--muted)}
+@media (min-width:860px){
+  .about-grid{grid-template-columns:1fr 2fr;gap:56px}
+}
+@media (min-width:640px){
+  .facts{grid-template-columns:1fr 1fr}
 }
 
-nav{
-  background:rgba(255,255,255,.96);
-  padding:14px 12px;
-  text-align:center;
-  position:sticky;
-  top:0;
-  z-index:100;
-  border-bottom:1px solid #e2ebe4;
-  box-shadow:0 4px 18px #0000000d;
-  backdrop-filter:blur(10px);
-}
-
-nav a{
-  color:#174c31;
-  text-decoration:none;
-  margin:0 14px;
-  font-weight:bold;
-  font-size:15px;
-  transition:.2s;
-}
-
-nav a:hover{
-  color:#2f8a55;
-}
-
-section{
-  max-width:950px;
-  margin:auto;
-  padding:60px 22px;
-}
-
-h2{
-  color:#1f5c3a;
-  margin-bottom:20px;
-  font-size:30px;
-  line-height:1.3;
-}
-
-.hero{
-  min-height:500px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  padding:80px 20px;
-  background:
-    radial-gradient(circle at 10% 20%,#d7efdd 0%,transparent 35%),
-    radial-gradient(circle at 90% 80%,#dcefe2 0%,transparent 35%),
-    linear-gradient(135deg,#f7fbf8,#e8f4eb);
-  position:relative;
-  overflow:hidden;
-}
-
-.hero h2{
-  font-size:52px;
-  line-height:1.12;
-  letter-spacing:-1.5px;
-  color:#123d28;
-  margin-bottom:25px;
-}
-
-.hero-content{
-  max-width:900px;
-  margin:auto;
-  position:relative;
-  z-index:2;
-}
-
-.hero::before{
-  content:"🌿";
-  position:absolute;
-  left:6%;
-  top:18%;
-  font-size:110px;
-  opacity:.08;
-  transform:rotate(-18deg);
-}
-
-.hero::after{
-  content:"🌱";
-  position:absolute;
-  right:7%;
-  bottom:15%;
-  font-size:100px;
-  opacity:.08;
-  transform:rotate(15deg);
-}
-.hero-tag{
-  font-size:14px;
-  font-weight:bold;
-  letter-spacing:2px;
-  color:#2f7d4a;
-  margin-bottom:18px;
-}
-.hero-description{
-  max-width:680px;
-  margin:0 auto;
-  font-size:18px;
-  color:#536158;
-}
-.hero-buttons{
-  margin-top:28px;
-}
-
-.hero-buttons .button{
-  margin-top:0;
-}
-
-.hero-link{
-  display:inline-block;
-  margin-left:18px;
-  color:#1f5c3a;
-  text-decoration:none;
-  font-weight:bold;
-}
-
-.hero p{
-  max-width:700px;
-  margin:0 auto;
-  color:#536158;
-}
-
-.button{
-  display:inline-block;
-  margin-top:25px;
-  padding:13px 25px;
-  background:#1f5c3a;
-  color:white;
-  text-decoration:none;
-  border-radius:8px;
-  font-weight:bold;
-  transition:.2s;
-}
-
-.button:hover{
-  background:#16452c;
-  transform:translateY(-2px);
-}
-
+/* Article cards */
+.cards{display:grid;gap:28px;margin-top:36px}
+@media (min-width:760px){.cards{grid-template-columns:1fr 1fr}}
 .card{
-  background:white;
-  padding:32px;
-  margin-top:25px;
-  border-radius:18px;
-  border:1px solid #e1e9e3;
-  box-shadow:0 8px 30px #0000000c;
-  transition:transform .25s ease, box-shadow .25s ease;
+  position:relative;display:flex;flex-direction:column;
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);overflow:hidden;
+  transition:border-color .2s;
 }
-.featured-article{
-  padding:45px;
-  background:
-    linear-gradient(135deg,#ffffff 0%,#f0f8f2 100%);
-  border-left:6px solid #2f7d4a;
-  position:relative;
-  overflow:hidden;
-}
+.card:hover,.card:focus-within{border-color:var(--leaf)}
+.card img{width:100%;aspect-ratio:16/10;object-fit:cover}
+.card-body{padding:24px 26px 28px;display:flex;flex-direction:column;gap:12px;flex:1}
+.card h3{font-size:1.45rem}
+.card h3 a{color:inherit;text-decoration:none}
+.card h3 a::after{content:"";position:absolute;inset:0}
+.card h3 a:focus-visible{outline:none}
+.card:focus-within{outline:3px solid var(--green-dark);outline-offset:3px}
+.card p{color:var(--muted)}
+.card .link{margin-top:auto;padding-top:6px}
 
-.featured-article::after{
-  content:"🌾";
-  position:absolute;
-  right:25px;
-  top:20px;
-  font-size:80px;
-  opacity:.08;
-}
+/* ---------- Article / post reader ---------- */
+.post{padding-block:clamp(40px,6vw,80px);background:var(--surface);border-block:1px solid var(--line)}
+.post[hidden]{display:none}
+.back{display:inline-block;font-weight:700;color:var(--green);text-underline-offset:4px;margin-bottom:24px}
+.post-head{max-width:46rem;margin-inline:auto}
+.post-head h2{font-size:clamp(1.9rem,4.6vw,3rem);letter-spacing:-.015em}
+.post-sub{margin-top:14px;font-size:1.15rem;color:var(--muted)}
+.post-hero{margin:32px auto 8px;max-width:960px}
+.post-hero img{width:100%;border-radius:var(--radius-lg)}
+.prose{max-width:46rem;margin-inline:auto}
+.prose h3{font-size:clamp(1.35rem,2.6vw,1.7rem);margin-top:2.4em;margin-bottom:.6em}
+.prose h4{font-size:1.1rem;font-family:var(--sans);font-weight:700}
+.prose p{margin-top:1.1em;font-size:1.0625rem;line-height:1.9}
+.prose h3+p{margin-top:0}
+.prose ul,.prose ol{margin-top:1.1em;padding-left:1.4em}
+.prose li{margin-top:.7em;line-height:1.85}
+.prose li::marker{color:var(--leaf);font-weight:700}
+.steps{list-style:devanagari}
+.steps h4{margin-bottom:.25em}
+.steps p{margin-top:0}
+.post-foot{max-width:46rem;margin:56px auto 0;padding-top:24px;border-top:1px solid var(--line)}
 
-.article-label{
-  color:#2f7d4a;
-  font-size:13px;
-  font-weight:bold;
-  letter-spacing:1.5px;
-  margin-bottom:12px;
-}
-
-.featured-article h3{
-  font-size:32px;
-  max-width:700px;
-}
-
-.featured-article p{
-  max-width:750px;
-  color:#536158;
-}
-
-.card h3{
-  color:#123d28;
-  margin-bottom:14px;
-  font-size:25px;
-  line-height:1.3;
+.refs{padding-left:0;list-style:none}
+.refs li{
+  font-family:var(--sans);font-size:.95rem;line-height:1.7;color:var(--muted);
+  padding-left:1.6em;text-indent:-1.6em;overflow-wrap:anywhere;
 }
 
-.card p{
-  margin-bottom:15px;
-}
+/* Saiya media */
+.video{aspect-ratio:16/9;margin-top:1.4em;border-radius:var(--radius-lg);overflow:hidden;background:#000}
+.video iframe{width:100%;height:100%;border:0;display:block}
+.gallery{display:grid;gap:18px;margin-top:1.4em}
+@media (min-width:560px){.gallery{grid-template-columns:1fr 1fr}}
+.gallery img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:var(--radius-lg)}
 
-img{
-  max-width:100%;
-  height:auto;
-}
+/* ---------- Academic ---------- */
+.academic{border-left:4px solid var(--marigold);padding:6px 0 6px 24px;margin-top:32px;max-width:40em}
+.academic h3{font-size:1.5rem}
+.academic p{color:var(--muted);margin-top:6px}
+.academic p+p{margin-top:14px}
 
-footer{
-  background:#123d28;
-  color:white;
-  text-align:center;
-  padding:35px 20px;
-  margin-top:30px;
-}
-
-@media(max-width:600px){
-
-  header{
-    padding:55px 18px;
-  }
-
-  header h1{
-    font-size:31px;
-  }
-
-  header p{
-    font-size:16px;
-  }
-
-  nav{
-    padding:12px 8px;
-  }
-
-  nav a{
-    display:inline-block;
-    margin:5px 7px;
-    font-size:14px;
-  }
-
-  section{
-    padding:45px 18px;
-  }
-
-  h2{
-    font-size:26px;
-  }
-
-  .hero{
-    padding-top:55px;
-    padding-bottom:55px;
-  }
-
- .hero h2{
-  font-size:38px;
-}
-
-  .card{
-    padding:22px;
-    border-radius:12px;
-  }
-}
+/* ---------- Contact & footer ---------- */
+.contact{background:var(--green);color:#fff}
+.contact h2{color:#fff}
+.contact p{max-width:38em;margin-top:14px;color:#e4efe6;font-size:1.1rem}
+.contact .btn{margin-top:26px}
+.site-footer{background:var(--green-dark);color:#cfe0d4;padding:30px 0;font-size:.95rem}
+.site-footer p+p{margin-top:2px}
 </style>
 </head>
 
-<body>
+<body id="top">
+<a class="skip" href="#main">Skip to main content</a>
 
-<header>
-  <h1>Pradip Babu Khadka</h1>
-  <p>Agriculture • Sustainability • Agro-biodiversity</p>
+<header class="site-header">
+  <div class="wrap bar">
+    <a class="brand" href="#home">Pradip Babu Khadka</a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav id="site-nav" aria-label="Main navigation">
+      <ul class="nav-list">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#articles">Articles</a></li>
+        <li><a href="#academic">Academic Work</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
 </header>
 
-<nav>
-  <a href="#home">Home</a>
-  <a href="#about">About</a>
-  <a href="#articles">Articles</a>
-  <a href="#academic">Academic Work</a>
-  <a href="#contact">Contact</a>
-</nav>
+<main id="main">
 
-<section id="home" class="hero">
+  <!-- HERO -->
+  <section class="hero" id="home" aria-labelledby="hero-title">
+    <div class="wrap hero-grid">
+      <div>
+        <h1 id="hero-title">Exploring Agriculture. Growing Better Ideas.</h1>
+        <p class="hero-lead">
+          A personal agriculture blog on agro-biodiversity, sustainable farming,
+          climate resilience, traditional food, and practical ideas for a better
+          agricultural future.
+        </p>
+        <div class="hero-actions">
+          <a class="btn" href="#article">Read the latest article</a>
+          <a class="btn btn-ghost" href="#about">About me</a>
+        </div>
+      </div>
 
-  <div class="hero-content">
-
-    <p class="hero-tag">🌱 AGRICULTURE • SUSTAINABILITY • IDEAS</p>
-
-    <h2>Exploring Agriculture.<br>Growing Better Ideas.</h2>
-
-    <p class="hero-description">
-      A personal agriculture blog exploring agro-biodiversity,
-      sustainable farming, climate resilience, traditional food,
-      and practical ideas for a better agricultural future.
-    </p>
-
-    <div class="hero-buttons">
-      <a class="button" href="#articles">Explore Articles →</a>
-      <a class="hero-link" href="#about">About Me</a>
+      <article class="hero-card">
+        <img src="IMG_0134.jpeg" alt="Flood-affected agricultural land in Nepal" fetchpriority="high" decoding="async">
+        <div class="hero-card-body">
+          <h2 lang="ne"><a href="#article">बाढीपछि, किसानले के रोप्ने?</a></h2>
+          <p lang="ne">नेपालमा कृषि-जैविक विविधतामार्फत विपद्पछिको कृषि पुनरुत्थानबारे पुनर्विचार।</p>
+        </div>
+      </article>
     </div>
 
+    <svg class="strata" viewBox="0 0 1200 56" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+      <path fill="#c7d6b6" d="M0 18C150 0 300 38 450 20S750 0 900 22s200 14 300-8V56H0Z"/>
+      <path fill="#b39770" d="M0 32C200 16 350 48 560 32s340-14 640 6V56H0Z"/>
+      <path fill="#f4f7f0" d="M0 46C250 38 450 56 700 46s300-6 500 4V56H0Z"/>
+    </svg>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section" id="about" aria-labelledby="about-title">
+    <div class="wrap about-grid">
+      <h2 class="title" id="about-title">About Me</h2>
+      <div class="about-copy">
+        <p>
+          I am a B.Sc. Agriculture student at Agriculture and Forestry University,
+          Nepal, with an interest in agro-biodiversity, sustainable agriculture,
+          climate resilience, and agricultural development.
+        </p>
+        <p>
+          Through this blog, I aim to share ideas and perspectives on
+          agriculture, agro-biodiversity, sustainability, climate
+          resilience and agricultural development.
+        </p>
+        <dl class="facts">
+          <div>
+            <dt>Studying</dt>
+            <dd>B.Sc. Agriculture, Agriculture and Forestry University (AFU), Nepal</dd>
+          </div>
+          <div>
+            <dt>Writing about</dt>
+            <dd>Agro-biodiversity, sustainable farming, climate resilience, traditional food</dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- ARTICLES -->
+  <section class="section" id="articles" aria-labelledby="articles-title" style="padding-top:0">
+    <div class="wrap">
+      <h2 class="title" id="articles-title">Articles</h2>
+      <p class="section-intro">Long reads and food stories, written in Nepali.</p>
+
+      <div class="cards">
+        <article class="card">
+          <img src="IMG_0134.jpeg" alt="Flood-affected agricultural land in Nepal" loading="lazy" decoding="async">
+          <div class="card-body" lang="ne">
+            <h3><a href="#article">बाढीपछि, किसानले के रोप्ने?</a></h3>
+            <p>
+              बाढीपछि कृषि पुनरुत्थान गर्दा बाली तथा प्रजाति विविधता, किसानको लाभ, बीउ प्रणाली, बजार र जलवायु उत्थानशीलतालाई कसरी जोड्न सकिन्छ भन्नेबारे यस लेखले चर्चा गर्छ।
+            </p>
+            <span class="link" lang="en">Read the article</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="IMG_0026.jpeg" alt="सैयाँ (Saiya) - सुदूरपश्चिमको परम्परागत खाजा" loading="lazy" decoding="async">
+          <div class="card-body" lang="ne">
+            <h3><a href="#saiya">सैयाँ (Saiya): सुदूरपश्चिमको परम्परागत खाजा</a></h3>
+            <p>
+              कोदो वा चामलको पिठोबाट घ्यूमा भुटेर बनाइने सुदूरपश्चिम नेपालको परम्परागत खाजा, यसको विधि र स्थानीय कृषि-संस्कृतिसँगको सम्बन्ध।
+            </p>
+            <span class="link" lang="en">Read the article</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ARTICLE 1: FLOOD -->
+  <article class="post" id="article" lang="ne" hidden>
+    <div class="wrap">
+      <a class="back" href="#articles" lang="en">&larr; Back to articles</a>
+
+      <header class="post-head">
+        <h2>बाढीपछि, किसानले के रोप्ने?</h2>
+        <p class="post-sub">नेपालमा कृषि-जैविक विविधतामार्फत विपद्पछिको कृषि पुनरुत्थानबारे पुनर्विचार</p>
+      </header>
+
+      <figure class="post-hero" style="margin-inline:auto">
+        <img src="IMG_0134.jpeg" alt="Flood-affected agricultural land in Nepal" loading="lazy" decoding="async">
+      </figure>
+
+      <div class="prose">
+        <h3>१. बाढी पछिको गलत प्रश्न</h3>
+
+        <p>
+          जब बाढीले खेतमा तयार भएको बाली नष्ट गर्छ, किसानहरू, कृषि प्रचारकर्मीहरू र राहत एजेन्सीहरूले सामान्यतया सोध्छन्: अब के रोप्ने? पूर्वनिर्धारित उत्तर त्यत्तिकै सरल छ, हराएको बीउ प्रतिस्थापन गर्नु र पहिले जस्तै उत्पादन पुनः सुरु गर्नु हो। धेरैजसो अवस्थामा यो सही निर्णय हो। तर ठूलो बाढीपछि, त्यो जमिन पहिले जस्तो थियो, अब त्यस्तो नरहन सक्छ। तलछटले (Sediment) माथिल्लो माटोलाई पुरिदिन सक्छ, निकास तथा सिँचाइ संरचनाहरूमा क्षति पुग्न सक्छ, बाली लगाउने बाँकी समय छोटिन सक्छ र कुनै बेला खरिदकर्तासम्म उपज पुर्‍याउने सडक तथा बजारहरू सञ्चालनमा नरहन सक्छन्। यी अवस्थाहरूमा, हराएको कुरालाई प्रतिस्थापन गर्नाले नाम मात्रको उत्पादन पुनर्स्थापित हुन्छ, आवश्यक रूपमा लचिलोपन होइन।
+        </p>
+
+        <p>
+          २६ अगस्ट २०२६ मा नेपालको भोटेकोशी–त्रिशूली नदी करिडोरमा आएको आकस्मिक बाढीले यो भिन्नतालाई स्पष्ट पार्छ। खाद्य तथा कृषि संगठन (FAO) को प्रारम्भिक मूल्याङ्कन अनुसार, करिब १,८०० हेक्टर खेतीयोग्य जमिन (जसमा मुख्यतया धानबाली थियो) मा क्षति पुगेको र यसबाट करिब ७,७०० टन उत्पादनको नोक्सानी भएको देखिन्छ; साथै कृषि भूमि, माछापालन क्षेत्र, खाद्य भण्डार, सडक र कृषि पूर्वाधारहरू पनि प्रभावित भएका थिए (FAO, २०२६)। त्यसपछि नेपालको राष्ट्रिय योजना आयोग र राष्ट्रिय विपद् जोखिम न्यूनीकरण तथा व्यवस्थापन प्राधिकरणद्वारा गरिएको 'द्रुत क्षति तथा आवश्यकता मूल्याङ्कन' (RDNA) ले भने केही कम तथ्याङ्क प्रस्तुत गरेको छ, जसअनुसार १,६६९ हेक्टर धानबाली र ५,८४३ टन धानको क्षति हुनुका साथै १३७ हेक्टर तरकारी खेतीको जमिनमा पनि क्षति पुगेको थियो (NPC &amp; NDRRMA; स्रोत: The Himalayan Times, २०२६)। यी दुई अनुमानबीचको भिन्नताले के देखाउँछ भने, क्षतिको आधारभूत परिमाणसमेत कहिले र कसरी मापन गरिन्छ भन्ने कुरामा निर्भर गर्दछ र पुनर्लाभसम्बन्धी योजना तर्जुमा गर्दा कुनै पनि एकल तथ्याङ्कलाई नै अन्तिम मान्नु हुँदैन।
+        </p>
+
+        <p>
+          यस लेखले सन् २०२६ को बाढीलाई एउटा दृष्टान्तका रूपमा लिँदै अलि फरक र कठिन प्रश्न उठाएको छ: के कृषि क्षेत्रको पुनरुद्धारको प्रक्रियालाई केवल बाढी आउनुअघिकै प्रणालीलाई यथावत दोहोर्‍याउने अवसरमा सीमित नराखी, अझ विविधतायुक्त र जलवायु-अनुकूल कृषि प्रणाली निर्माण गर्ने अवसरमा परिणत गर्न सकिन्छ?
+        </p>
+
+        <h3>२. पुनरुद्धार जमिनबाट सुरु गर्नुपर्छ, बीउबाट होइन</h3>
+
+        <p>
+          बाढीपछिको कृषि-सम्बन्धी पहिलो निर्णयलाई प्रायः एउटा व्यवस्थापकीय वा 'लजिस्टिक' समस्याका रूपमा हेरिन्छ अर्थात्, कति छिटो बीउ वितरण गर्न सकिन्छ? तर बाढीले सबै खेतमा एउटै किसिमको असर पार्दैन। कतिपय खेतको माथिल्लो तहको माटो कटानका कारण बगेर जान्छ; कतिपयमा मलिलो तलछटको पातलो तह जम्मा हुन्छ; त कतिपय खेत एक मिटर वा सोभन्दा बढी बालुवामुनि पुरिन्छन्। बाढी प्रभावित एउटै उपत्यकाभित्र पनि पानीको निकास र सिँचाइको अवस्था अप्रत्याशित रूपमा फरक-फरक हुन सक्छ। त्यसैले, बालीको कुनै पनि जात छनोट गर्नुअघि जमिनको अवस्थालाई राम्ररी बुझ्नु आवश्यक हुन्छ।
+        </p>
+
+        <p>
+          सन् २००८ मा नेपालमा आएको कोशी बाढीसम्बन्धी प्रमाणले यसको प्रभाव कति गम्भीर हुन सक्छ भन्ने कुरा स्पष्ट पार्छ। काफ्ले, खनाल र दाहाल (२०१७) ले बाढीको नयाँ बहाव क्षेत्रमा थिग्रेको माटो वा तलछट (sediment) को अध्ययन गर्दा, कम प्रभावित 'हरियो क्षेत्र' (green zones) मा यसको औसत मोटाइ करिब ०.१० मिटर र बाँध फुटेको मुख्य क्षेत्रमा ४.५ मिटर रहेको पाइयो; साथै, बहाव क्षेत्रबाट टाढा जाँदै गर्दा माटोको कणको बनोट क्रमशः मसिनो हुँदै गएको देखियो। सुनसरी जिल्लाका सबैभन्दा बढी प्रभावित गाउँहरू (श्रीपुर, हरिपुर र पश्चिमी कुशाह) मा खेतीयोग्य जमिनको करिब एक चौथाइ भाग बाढीको आठ वर्षपछि पनि बाँझै रह्यो, किनकि त्यहाँ परम्परागत खेतीका लागि अनुपयुक्त मोटो र बालुवायुक्त तलछट थुप्रिएको थियो (काफ्ले लगायत, २०१७)। यसको विपरीत, जहाँ तलछटको तह पातलो र कणहरू मसिनो थिए, त्यहाँ किसानहरूले नयाँ माटोलाई पहिलेभन्दा बढी उर्वर पाए र तरकारी तथा नगदे बालीतर्फ सफलतापूर्वक आकर्षित भए; कतिपय अवस्थामा त उनीहरूको आम्दानीमा २०० देखि ३०० प्रतिशतसम्म वृद्धि भयो (Kafle et al., 2017)।
+        </p>
+
+        <p>
+          यसबाट सिक्नुपर्ने पाठ यो होइन कि बाढीले डुबेको जमिन पूर्ण रूपमा बर्बाद हुन्छ वा पूर्ण रूपमा सुध्रिन्छ; बरु, बाढीले प्रभावित हरेक खेतका लागि पुनर्स्थापनासम्बन्धी एउटै उपाय लागू गर्न सकिँदैन भन्ने हो। मसिनो गेग्रान/तलछट वा माटोको पातलो तहले एउटा वास्तविक अवसर सिर्जना गर्न सक्छ; तर खस्रो बालुवाको बाक्लो तहले भने वर्षौंसम्म परम्परागत खेतीपातीलाई अव्यावहारिक बनाउन सक्छ। यस अर्थमा, बालीको छनोट गर्नुअघि माटोको बनोट, गेग्रान/तलछटको तहको मोटाइ, पानी निकासको अवस्था र सिँचाइको उपलब्धता जस्ता विषयहरूमा विचार पुर्‍याउनु आवश्यक हुन्छ, किनकि पुनर्स्थापनाको कार्य बाली लगाउने निर्णय हुनुभन्दा पहिले माटो व्यवस्थापनसम्बन्धी निर्णय हो।
+        </p>
+
+        <h3>३. कृषि-जैविक विविधता भनेको धेरै बालीहरू उब्जाउनु मात्र होइन</h3>
+
+        <p>
+          सामान्य बोलचालमा कृषि-जैविक विविधतालाई प्रायः विभिन्न प्रकारका बाली प्रजातिहरू उब्जाउने कुरासँग जोडेर हेरिन्छ। तर, यसको अवधारणा त्योभन्दा निकै फराकिलो छ। यसमा विभिन्न प्रजातिहरू, एउटै प्रजातिका विभिन्न किसिमहरू र आनुवंशिक गुणहरूबीचको विविधता समावेश हुन्छ; साथै, यसमा बाली लगाउने समय, बाली लगाउने क्रम तथा एउटै कृषि-फार्ममा बाली, पशुपन्छी र रूखहरूको संयोजनमा पाइने विविधता पनि समेटिन्छ। विपद्पछिको पुनरुद्धारका लागि यो भिन्नता महत्त्वपूर्ण छ; किनभने यसको अर्थ किसानले विविधता अपनाउनका लागि धान खेती छोड्नु पर्दैन।
+        </p>
+
+        <p>
+          सडकबाट हेर्दा बाली उस्तै देखिए पनि, परम्परागत धानको सट्टा बाढी सहन सक्ने जातको धान रोप्नु आफैंमा आनुवंशिक तथा जातगत विविधताको एक रूप हो। नेपाल कृषि अनुसन्धान परिषद् (NARC) को जातहरूको सूचीअनुसार, 'साम्बा मन्सुली सब-१' (Samba Mansuli Sub-1) मसिनो दाना भएको र डुबान सहन सक्ने जात हो। सन् २०११ मा सिफारिस गरिएको यो जात पाक्न १४५–१५० दिन लाग्छ र यसलाई समुद्र सतहबाट करिब ७०० मिटरसम्मको उचाइमा रहेको तराई क्षेत्रका लागि उपयुक्त मानिन्छ। सन् २०१८ मा सिफारिस गरिएको 'बहुगुणी-२' (Bahuguni-2) पाक्न करिब १४२ दिन लाग्ने जात हो; यसमा डुबान तथा बालीमा दाना लाग्ने वा फूल फुल्ने चरणमा खडेरी सहन सक्ने दुवै गुण पाइन्छ, जसले गर्दा एउटै मौसममा बाढी र खडेरी दुवैको जोखिम हुने क्षेत्रहरूमा यो उपयोगी हुन्छ। बाढीको जोखिम हुने र डुबान भइरहने क्षेत्रहरूका लागि सिफारिस गरिएको 'गंगा सागर-२' (Ganga Sagar-2) पाक्न स्रोतअनुसार करिब १३०–१४५ दिन लाग्ने जात हो र यसले उस्तै वातावरणीय अवस्थाका लागि छोटो अवधिमा पाक्ने विकल्प प्रदान गर्दछ।
+        </p>
+
+        <p>
+          यी उदाहरणहरूले एउटा सामान्य सिद्धान्ततर्फ संकेत गर्छन्: विपद्पछिको विविधीकरणको उद्देश्य 'अधिकतम विविधता' नभई 'उपयुक्त विविधता' हुनुपर्छ। धान खेतीका लागि अझै उपयुक्त जमिन भएका किसानले धानको जात परिवर्तन गरेर धान खेती नै निरन्तरता दिनु उचित हुन सक्छ। तर, बालुवाले पुरिएको जमिन भएका किसानका लागि भने पुनरुद्धारको बिल्कुलै फरक रणनीति आवश्यक पर्न सक्छ, जसमा बालीबाहेक अन्य कुनै कार्यबाट सुरुवात गर्नुपर्ने अवस्था पनि आउन सक्छ।
+        </p>
+
+        <h3>४. बाली रोप्ने समय-सीमा (Planting Window) पनि विविधताको एक रूप हो</h3>
+
+        <p>
+          बाढीले माटोलाई जति असर पुर्‍याउँछ, त्यति नै कृषि कार्यतालिकालाई पनि अस्तव्यस्त बनाउँछ। पानीको निकास सुचारु भएपछि, थिग्रेको माटो वा लेदो आंशिक रूपमा हटाइएपछि वा बाढीको पानी घटेपछि जमिन पुनः खेतीयोग्य बन्दासम्म, अर्को बाली लगाउने समय नजिकिइसकेको हुनाले किसानहरूसँग निकै कम समय बाँकी रहन सक्छ। यसले गर्दा बालीका प्रजाति वा जातहरूको विविधता मात्र नभई 'समयगत विविधता' (temporal diversity) पनि पुनर्लाभ वा पुनःस्थापनाको एउटा महत्त्वपूर्ण उपाय बन्न पुग्छ।
+        </p>
+
+        <p>
+          छोटो अवधिमा पाक्ने जातले कहिलेकाहीँ किसानलाई बाँकी रहेको छोटो समयभित्रै उत्पादन चक्र पूरा गर्न सम्भव बनाउँछ, जबकि लामो अवधिमा पाक्ने जात त्यति समयमा परिपक्व नहुन सक्छ। नेपालमा सिफारिस गरिएका धानका जातहरूमा बाली पाक्ने अवधिमा निकै भिन्नता पाइन्छ: 'राम धान' (Ram Dhan) करिब १३०–१३७ दिनमा पाक्छ र चितवन क्षेत्रमा लोकप्रिय छ; 'हार्दिनाथ-१' (Hardinath-1) र 'चैते-५' (Chaite-5) छोटो अवधिका वसन्ते धानका रूपमा ११०–१२५ दिनमा पाक्छन्; जबकि 'साम्बा मन्सुली सब-१' (Samba Mansuli Sub-1) जस्ता प्रतिकूल अवस्था सहन सक्ने विभिन्न जातहरू पाक्न करिब १४५–१५० दिन लाग्छ (NARC, n.d.)। तर, सबैभन्दा छोटो अवधिमा तयार हुने बाली नै स्वतः उत्तम विकल्प भने हुँदैन; किसानहरूले बालीको अवधिलाई उत्पादनको मात्रा, दानाको गुणस्तर, स्थानीय स्वादको प्राथमिकता, आवश्यक कृषि सामग्री र बजारको मागजस्ता पक्षहरूसँग दाँजेर हेर्नुपर्छ। यस सन्दर्भमा, 'लचिलोपन' (resilience) भन्नाले बाढीको सामना गरेर बाली बाँच्न सक्ने क्षमता मात्र होइन, बरु बाढीपछि पनि कृषि प्रणालीले उत्पादनको चक्र पूरा गर्न सक्ने क्षमता भन्ने पनि बुझिन्छ।
+        </p>
+
+        <h3>५. बाली विविधीकरणलाई सावधानीपूर्वक अघि बढाउनुपर्छ।</h3>
+
+        <p>
+          नयाँ बाली वा बाली लगाउने पद्धतिमा विविधीकरणले पुनरुत्थानको अर्को बाटो प्रदान गर्न सक्छ, तर नेपालको व्यापक विविधीकरणको विगतसम्बन्धी प्रमाणहरूले भने सावधानी अपनाउनुपर्ने सङ्केत गर्छन्। सन् १९९० देखि २०२२ सम्म नेपालमा बाली विविधीकरणसम्बन्धी नीति र अभ्यासको सन् २०२६ मा गरिएको एक व्यवस्थित समीक्षा (जसमा २३ वटा सरकारी तथा दातृ निकायका कार्यक्रमहरूको 'स्कोपिंग रिभ्यु' र राष्ट्रिय बाली तथ्याङ्कको Simpson's Diversity Index विश्लेषण समावेश थियो) ले के देखाएको छ भने, दशकौँदेखिको नीतिगत प्रतिबद्धताका बाबजुद पनि अन्नबालीबाहेक अन्य बालीतर्फको विविधीकरणको गति सामान्य मात्र रहेको छ; यसमा कमजोर बजार आबद्धता, अपर्याप्त भण्डारण तथा 'कोल्ड-चेन' पूर्वाधार, खण्डित मूल्य शृङ्खला, श्रम आप्रवासन तथा योजना र कार्यान्वयनबीचको खाडलजस्ता पक्षहरू बाधक बनेका छन् (Adhikari et al., 2026).
+        </p>
+
+        <p>
+          यसले बाढीपछिको पुनर्लाभसम्बन्धी कार्यक्रमहरूका लागि एउटा विशेष चेतावनी दिन्छ। यदि बाढीपछि किसानहरूलाई उच्च मूल्यको तरकारी खेती गर्न प्रोत्साहित गरियो तर सडकहरू क्षतिग्रस्त नै रहे, भण्डारणको सुविधा उपलब्ध भएन र खरिदकर्ताहरू पनि नभए भने, उच्च उत्पादनले उच्च आम्दानी सुनिश्चित नगर्न सक्छ; बरु किसानहरूले बाली भित्र्याइसकेपछिको क्षति वा खेतमै कम मूल्य पाउने समस्याको सामना गर्नुपर्ने हुन सक्छ। अर्को शब्दमा भन्नुपर्दा, बजारको विविधीकरणबिना गरिने उत्पादनको विविधीकरणले जोखिमलाई कम गर्नुको सट्टा खेतबाट बजारसम्म मात्र सार्न सक्छ।
+        </p>
+
+        <p>
+          बाली विविधीकरण धानमा आधारित प्रणालीलाई विस्थापित गरेर होइन, बरु सोही प्रणालीभित्रै पनि गर्न सकिन्छ। धानबालीपछि छोटो अवधिमा पाक्ने दलहन बाली (जस्तै: मसुरो वा मुगी) लगाउने बाली चक्र अपनाउँदा मुख्य बालीलाई नहटाईकन आम्दानीको दोस्रो स्रोत सिर्जना गर्न र पछिल्लो बालीका लागि नाइट्रोजनको लाभ प्राप्त गर्न सकिन्छ; नेपालमा धानमा आधारित बाली चक्रसम्बन्धी अध्ययनहरूले यस्ता प्रणालीहरूको आर्थिक तथा ऊर्जासम्बन्धी कार्यक्षमताको विश्लेषण गरेका छन् (Pokhrel et al., 2017)। यसको मुख्य सन्देश के हो भने, विपद्पछिको बाली विविधीकरणलाई सबै ठाउँमा लागू हुने एकमुष्ट समाधानका रूपमा नभई, सम्बन्धित स्थानविशेषको अवस्था र आर्थिक यथार्थताका आधारमा मूल्याङ्कन गरिनुपर्छ।
+        </p>
+
+        <h3>६. किसानहरूलाई एक्लै निर्णय गर्न छोड्नु हुँदैन।</h3>
+
+        <p>
+          बाढी सहन सक्ने र स्थानीय वातावरणमा राम्रोसँग घुलमिल हुन सक्ने जातको धान भए पनि, यदि किसानले समयमै त्यसको बीउ पाउन सकेनन् वा आफ्नो खेतका लागि कुन जात उपयुक्त हुन्छ भन्ने जानकारी लिने कुनै उपाय पाएनन् भने त्यस्तो जातको खासै उपयोगिता हुँदैन। चितवनका भरतपुर र माडी नगरपालिकाका २६८ घरधुरीमा सन् २०२५ मा गरिएको एक अध्ययनले बाढी सहन सक्ने धानका जातहरूको प्रयोगबारे विश्लेषण गर्‍यो। उक्त अध्ययनले किसानहरूबीचको आपसी सञ्जाल र सामाजिक सिकाइले कुनै घरधुरीले नयाँ जातको धान अपनाउने वा नअपनाउने निर्णयमा महत्त्वपूर्ण प्रभाव पार्ने गरेको तथ्य पत्ता लगायो (Akitaya, Saito, &amp; Pandit, 2025)। यसले कृषि लचिलोपनको बारेमा एउटा फराकिलो सत्यलाई औंल्याउँछ: प्राविधिक रूपमा उपयुक्त प्रजाति केवल एक पटक मात्र लचिलोपनको उपकरण बन्छ जब यो कार्यशील बीउ प्रणाली, विस्तार सेवाहरू, र साथी सञ्जालहरू मार्फत किसानहरूसँग जोडिन्छ, प्रविधि एक्लैले मात्र यात्रा गर्दैन।
+        </p>
+
+        <p>
+          यो विशेष गरी विपद्को लगत्तैको अवस्थामा सान्दर्भिक हुन्छ, जब छिटो निर्णय लिनुपर्ने हुन्छ र सूचना आदानप्रदानका सामान्य माध्यमहरू आफैँ अवरुद्ध भएका हुन सक्छन्। प्रभावित जिल्लामा एउटै मात्र जात समान रूपमा वितरण गर्नुको सट्टा, प्रसार सेवाहरूले प्रदर्शन प्लट र निर्णय लिन सघाउने सरल साधनहरूको सहयोगमा स्थानीय परिवेश सुहाउँदा केही सीमित विकल्पहरू उपलब्ध गराउन सक्छन्; उदाहरणका लागि:
+        </p>
+
+        <ul>
+          <li><strong>जहाँको जमिन धान खेतीका लागि उपयुक्त छ:</strong> धान खेतीलाई निरन्तरता दिनुहोस्, तर प्रतिकूल अवस्था सहन सक्ने(Stress tolerant) वा छोटो अवधिमा पाक्ने(Short duration) जातको छनोट गर्नेबारे विचार गर्नुहोस्।</li>
+          <li><strong>बारम्बार डुबान हुने सम्भावना भएको ठाउँमा:</strong> डुबान सहन सक्ने धान(Submergence tolerant rice)लाई प्राथमिकता दिनुहोस् र सुरक्षा(Insurance)को उपायका रूपमा जातहरूको विविधता कायम राख्नुहोस्।</li>
+          <li><strong>जहाँ बाली रोप्ने समय(Planting window)को दायरा साँघुरिएको छ:</strong> त्यहाँ छोटो अवधिमा तयार हुने बाली वा जातहरू(shorter-duration crops or varieties) लगाउनेबारे विचार गर्नुहोस्, जसले आफ्नो उत्पादन चक्र पूरा गर्न सकून्।</li>
+          <li><strong>जहाँ माटो वा गेग्रान/तलछटको तह बाक्लो छ:</strong> अघिल्लो सिजनको बाली नै फेरि उम्रिन्छ भनी मान्नुको सट्टा, केही रोप्नुअघि त्यसको गहिराइ र बनोटको जाँच गर्नुहोस्।</li>
+          <li><strong>जहाँ उत्पादन सम्भव छ तर बजारमा क्षति पुगेको छ:</strong> त्यहाँ उत्पादनसम्बन्धी कुनै पनि सहयोगलाई भण्डारण, ढुवानी र बजार पहुँच (market linkages) मा गरिने लगानीसँग जोड्नुहोस्।</li>
+        </ul>
+
+        <p>
+          यस्तो विकल्पहरूको सूची/ मेनु-मा आधारित दृष्टिकोणले बाढी प्रभावित प्रत्येक खेतलाई एउटै ठान्ने प्रवृत्तिलाई पन्छाउँछ, साथै समयको चापका बाबजुद पनि कृषि प्रसारकर्मीहरूलाई काम गर्नका लागि विकल्पहरूको व्यवस्थापन गर्न सकिने किसिमको दायरा प्रदान गर्छ।
+        </p>
+
+        <h3>७. "प्रतिस्थापन" देखि "अझ राम्रोसँग पुनर्निर्माण" सम्म: पुनर्लाभ/पुनरुद्धारको एउटा खाका</h3>
+
+        <p>
+          माथि उल्लेखित तर्कहरूलाई विपद्पछिको कृषि पुनरुत्थान/पुनर्लाभका लागि छ-चरण(Six step)को प्रक्रियाका रूपमा यसरी सारांशित गर्न सकिन्छ: मूल्याङ्कन, पुनर्स्थापना, छनोट, विविधीकरण, आबद्धता र अनुगमन(assess, restore, select, diversify, connect, and monitor)
+        </p>
+
+        <ol class="steps">
+          <li>कुनै पनि बाली सिफारिस गर्नुअघि जमिन, माटोको तलछट(sediment), जल प्रणाली, पूर्वाधार, बीउको उपलब्धता, जनशक्ति र बजारको अवस्थाको मूल्याङ्कन गर्नुहोस्।</li>
+          <li>खेतीका लागि आवश्यक आधारभूत अवस्थाहरू, जस्तै निकास प्रणाली, सिँचाइ, सडक र अन्य अत्यावश्यक पूर्वाधारहरूको पुनर्स्थापना गर्नुहोस्; किनकि बाली लगाउनुअघि यस्ता पूर्वाधारको पुनर्स्थापना नै यथार्थपरक पहिलो कदम हो।</li>
+          <li>सम्पूर्ण जिल्लाभरि एउटै मात्र विकल्प वितरण गर्नुको सट्टा स्थानीय जमिन र बजारको अवस्था अनुसार बाली तथा तिनका जातहरू छनौट गर्नुहोस्।</li>
+          <li>एकमुष्ट वा सामान्य निर्देशनको रूपमा नभई, कृषि-वैज्ञानिक तथा आर्थिक दृष्टिकोणले उपयुक्त हुने गरी बालीका प्रजाति, किसिम, रोप्ने समय वा बाली चक्रमा विविधता ल्याउनुहोस्।</li>
+          <li>किसानहरूलाई बीउ आपूर्तिकर्ता, प्रसार सेवा, सहकारी, खरिदकर्ता र भण्डारण सुविधासँग जोड्नुहोस्; किनभने उपयुक्त जातको बीउ त्यति नै उपयोगी हुन्छ जति त्यसलाई उपलब्ध गराउने प्रणाली।</li>
+          <li>उत्पादनको परिमाण मात्र नभई उत्पादन लागत, खुद आम्दानी, आयको स्थिरता, खाद्य सुरक्षा, माटोको अवस्था र भविष्यमा आउन सक्ने अर्को विपद्को सामना गर्ने कृषि फार्मको क्षमता जस्ता पक्षहरूको पनि अनुगमन गर्नुहोस्।</li>
+        </ol>
+
+        <p>
+          यस संरचनालाई सन् २०२६ को बाढीपछि गरिएको कुनै विशेष स्थलगत परीक्षणमार्फत प्रमाणित भइसकेको 'मोडल' भन्दा पनि एउटा प्रस्तावित विश्लेषणात्मक मार्गका रूपमा बुझ्नु उपयुक्त हुन्छ; किनकि यस्तो अध्ययन हालसम्म भएको छैन। यसको मुख्य योगदान भनेको बीउ वितरणलाई केवल एक स्वतन्त्र प्राविधिक समाधानका रूपमा मात्र नहेरी, पारिस्थितिक, आर्थिक र संस्थागत पक्षहरूलाई पुनर्लाभको एउटै प्रक्रियामा समेट्नु हो।
+        </p>
+
+        <h3>८. निष्कर्ष: धान खेतीलाई त्याग्ने होइन, तर यसैमा मात्र भर पर्ने पनि होइन।</h3>
+
+        <p>
+          यसको अर्थ नेपालले धान खेतीबाट पछि हट्नुपर्छ भन्ने तर्क होइन। तराईदेखि पहाडसम्मका खाद्य प्रणाली र ग्रामीण जीविकोपार्जनमा धानको भूमिका अझै पनि केन्द्रीय छ, र यहाँ समीक्षा गरिएका कुनै पनि प्रमाणले यसको विपरीत कुरा संकेत गर्दैनन्। बाढीपछिको पुनर्लाभबाट सिक्न सकिने पाठ अलि सीमित र एक अर्थमा भन्नुपर्दा बढी संयमित प्रकृतिको छ: बाढीले जमिनको स्वरूप नै परिवर्तन गरिसकेपछि, कुनै एउटा बाली वा जातलाई नै स्वतः एकमात्र विकल्पका रूपमा मान्नु हुँदैन।
+        </p>
+
+        <p>
+          कुनै किसानका लागि लचिलोपन(Resilience)को अर्थ डुबान सहन सक्ने जातको धान खेतीमा फर्कनु हुन सक्छ। अर्कोतर्फ, बाली लगाउने उपयुक्त समय खुम्चिएका किसानका लागि यसको अर्थ छोटो अवधिमा पाक्ने जातको धान रोज्नु हुन सक्छ। तेस्रो किसानका लागि, यसको अर्थ धान र दलहनको बाली चक्र (rotation) अपनाउनु हुन सक्छ, जसले जोखिमलाई दुई बालीमा बाँड्न मद्दत गर्छ। जुन जमिन एक मिटर वा सोभन्दा बढी बाढीजन्य गेग्रान(Sediment) वा माटोमुनि पुरिएको छ, त्यहाँ तत्काल बाली लगाउनुको सट्टा जमिनको पुनर्स्थापना गर्नु वा केही समय पर्खनु उपयुक्त पहिलो कदम हुन सक्छ। भीषण बाढीले एकैसाथ विभिन्न बालीनाली र तिनलाई सघाउने प्रणालीहरूमा क्षति पुर्‍याउन सक्ने भएकाले, केवल बाली विविधीकरणले मात्र विपद्को जोखिम हटाउन सक्दैन; यसका लागि बाढी क्षेत्रको उचित व्यवस्थापन, पूर्वाधार विकास, पूर्वसूचना प्रणाली र समग्र विपद् पूर्वतयारी जस्ता उपायहरूलाई पनि सँगै अघि बढाउनु आवश्यक हुन्छ।
+        </p>
+
+        <p>
+          तसर्थ, यसको मुख्य तर्क "धेरै बाली लगाउनुहोस्" भन्ने होइन। बरु, विपद्पछिको कृषि पुनरुत्थान स्थानीय परिवेशमा आधारित र जैविक विविधतायुक्त हुनुपर्छ, साथै ती निर्णयहरू अपनाउनुपर्ने किसानहरूका लागि यो आर्थिक रूपमा व्यावहारिक पनि हुनुपर्छ। बाढीपछि केवल "हामीले कुन बाली गुमायौं?" भन्ने प्रश्न मात्र पर्याप्त हुँदैन; बरु "यहाँ कस्तो कृषि प्रणाली अपनाउँदा बाली पुनर्स्थापना गर्न, खाद्य तथा आम्दानी प्राप्त गर्न, उपयोगी विविधताको संरक्षण गर्न र भविष्यमा आउने अर्को विपद्को सामना गरेर पनि टिक्न सकिन्छ?" भन्ने कुरामा पनि ध्यान दिनुपर्छ।
+        </p>
+
+        <h3 lang="en">References</h3>
+        <ol class="refs" lang="en">
+          <li>Adhikari, M., Nandi, R., Thapa, G., Kishore, A., Karmacharya, S., &amp; Pokharel, P. (2026). Crop diversification in Nepal (1990–2022): Policies, practices, and pathways forward. <em>Agricultural Environment and Sustainability, 1</em>(3), 100026. <a href="https://doi.org/10.1016/j.ages.2026.100026" rel="noopener">https://doi.org/10.1016/j.ages.2026.100026</a></li>
+          <li>Akitaya, R., Saito, Y., &amp; Pandit, R. (2025). Assessment of factors influencing farmers’ adoption of flood-tolerant rice varieties in Nepal. <em>International Journal of Agricultural Sustainability, 23</em>(1), 2551998. <a href="https://doi.org/10.1080/14735903.2025.2551998" rel="noopener">https://doi.org/10.1080/14735903.2025.2551998</a></li>
+          <li>Food and Agriculture Organization of the United Nations. (2026, September 11). Nepal floods damage 1,800 hectares of crops and kill thousands of livestock [Interview with Beth Bechdol]. FAO.</li>
+          <li>International Rice Research Institute. (2022, August 30). Nepal releases seven new and improved rice varieties to increase domestic rice production. <em>IRRI News</em>.</li>
+          <li>Kafle, K. R., Khanal, S. N., &amp; Dahal, R. K. (2017). Consequences of Koshi flood 2008 in terms of sedimentation characteristics and agricultural practices. <em>Geoenvironmental Disasters, 4</em>, 4. <a href="https://doi.org/10.1186/s40677-017-0069-x" rel="noopener">https://doi.org/10.1186/s40677-017-0069-x</a></li>
+          <li>Kafle, K. R., Khanal, S. N., &amp; Dahal, R. K. (2020). Impacts of long-term flood-induced sedimentation on agricultural land: Case study of the 2008 Koshi flood in Eastern Nepal. <em>Kathmandu University Journal of Science, Engineering and Technology, 14</em>(1).</li>
+          <li>National Agricultural Research Council [NARC]. (n.d.). <em>Released and registered rice varieties of Nepal: Package of practices.</em> Government of Nepal.</li>
+          <li>Pokhrel, S., et al. (2017). Rice-based cropping systems and their economic and energy performance in Nepal. <em>Journal of Environmental Management, 197</em>, 70–79.</li>
+          <li>The Himalayan Times. (2026, September 14). Bhotekoshi-Trishuli floods cause Rs 1.09 billion crop damage, Rs 1.11 billion livestock losses.</li>
+        </ol>
+      </div>
+
+      <div class="post-foot" lang="en">
+        <a class="back" href="#articles" style="margin-bottom:0">&larr; Back to articles</a>
+      </div>
+    </div>
+  </article>
+
+  <!-- ARTICLE 2: SAIYA -->
+  <article class="post" id="saiya" lang="ne" hidden>
+    <div class="wrap">
+      <a class="back" href="#articles" lang="en">&larr; Back to articles</a>
+
+      <header class="post-head">
+        <h2>सैयाँ (Saiya): सुदूरपश्चिमको परम्परागत खाजा</h2>
+      </header>
+
+      <figure class="post-hero" style="margin-inline:auto">
+        <img src="IMG_0026.jpeg" alt="सैयाँ (Saiya) - सुदूरपश्चिमको परम्परागत खाजा" loading="lazy" decoding="async">
+      </figure>
+
+      <div class="prose">
+        <p>
+          सुदूरपश्चिम नेपालको परम्परागत खाद्य संस्कृतिमा सैयाँ (Saiya/Saiyaa) एउटा विशेष स्थानीय खाजाका रूपमा परिचित छ। यो अन्य ठाउँमा पाइने दूधमा पकाइने पातलो सेवैयाँभन्दा फरक प्रकारको परिकार हो। परम्परागत रूपमा कोदोको पिठो (Finger millet flour) वा चामलको पिठो (Rice flour) लाई घ्यूमा भुटेर गुड वा चिनी मिसाई तयार गरिने सैयाँ स्वादिलो, पौष्टिक र सजिलै तयार गर्न सकिने घरेलु खाजा हो।
+        </p>
+        <p>
+          सैयाँ केवल एउटा परिकार मात्र होइन; यसले स्थानीय कृषि उत्पादन, पारिवारिक ज्ञान, आतिथ्य र पुस्तौँदेखि चलिआएको खाद्य परम्परालाई पनि जोड्छ।
+        </p>
+
+        <h3>आवश्यक सामग्री</h3>
+        <ul>
+          <li>कोदोको पिठो (Finger millet flour) वा चामलको पिठो (Rice flour) — २ कप</li>
+          <li>शुद्ध घ्यू — ४–५ चम्चा</li>
+          <li>दूध वा पानी — करिब ½ लिटर</li>
+          <li>गुड वा चिनी — स्वादअनुसार</li>
+          <li>वैकल्पिक रूपमा: बदाम, काजु वा अन्य सुक्खा फलफूल स्वाद र सुगन्ध बढाउन प्रयोग गर्न सकिन्छ</li>
+        </ul>
+
+        <h3>बनाउने तरिका</h3>
+        <ol class="steps">
+          <li>
+            <h4>पिठो तयार गर्ने</h4>
+            <p>कोदोको पिठो वा चामलको पिठो एउटा भाँडामा राख्नुहोस्। त्यसमा दूध वा पानी थोरै–थोरै छर्कँदै हातले हल्का मोल्नुहोस्। पिठोलाई डल्लो वा पातलो लेदो बनाउनु हुँदैन। हल्का भिजेको र दानादार बनावट आउने गरी तयार गर्नुहोस्।</p>
+          </li>
+          <li>
+            <h4>घ्यू तताउने</h4>
+            <p>भारी तल्लो भएको कराही वा प्यानमा घ्यू तताउनुहोस्। मध्यम आँचमा घ्यू तताउँदा यसको सुगन्ध आउन थाल्छ।</p>
+          </li>
+          <li>
+            <h4>पिठो भुट्ने</h4>
+            <p>तयार गरिएको दानादार कोदोको पिठो वा चामलको पिठो घ्यूमा हाल्नुहोस् र आँच कम गर्नुहोस्। लगातार चलाउँदै बिस्तारै भुट्नुहोस्। पिठो समान रूपमा पाक्न र नजल्नका लागि यो चरणमा निरन्तर चलाउनु महत्त्वपूर्ण हुन्छ।</p>
+          </li>
+          <li>
+            <h4>गुड वा चिनी मिसाउने</h4>
+            <p>पिठो गाढा सुनौलो हुँदै सुगन्ध आउन थालेपछि गुड वा चिनी थप्नुहोस्। गुड प्रयोग गर्दा सैयाँमा अझ गहिरो र परम्परागत स्वाद आउँछ।</p>
+          </li>
+          <li>
+            <h4>अन्तिम तयारी</h4>
+            <p>कम आँचमा थप ३–५ मिनेट चलाउँदै पकाउनुहोस्। गुड पग्लिएर भुटेको कोदोको पिठो वा चामलको पिठोसँग राम्रोसँग मिसिएपछि सैयाँ तयार हुन्छ।</p>
+          </li>
+          <li>
+            <h4>परोस्ने</h4>
+            <p>तयार सैयाँलाई प्लेटमा निकालेर तात्तातै परोस्नुहोस्। सैयाँ प्रायः एक कप तातो चियासँग खाँदा यसको स्वाद अझ राम्रो लाग्छ। चाहनाअनुसार माथिबाट बदाम, काजु वा अन्य सुक्खा फलफूल पनि थप्न सकिन्छ।</p>
+          </li>
+        </ol>
+
+        <h3>सांस्कृतिक महत्व</h3>
+        <p>
+          सुदूरपश्चिममा परम्परागत खानाहरू स्थानीय जीवनशैली, आतिथ्य र पारिवारिक सम्बन्धसँग जोडिएका छन्। सैयाँ पनि यस्तै घरेलु खाजामध्ये एक हो। विशेषगरी घरमा पाहुना आउँदा वा परिवार तथा आफन्तहरू सँगै हुँदा स्थानीय सामग्रीबाट तयार गरिएको खाजा परोस्नु आतिथ्यको एउटा माध्यमका रूपमा लिन सकिन्छ।
+        </p>
+        <p>
+          यस प्रकारका परम्परागत परिकारले स्थानीय खाद्य ज्ञान र पुस्तौँदेखि हस्तान्तरण हुँदै आएको खाना बनाउने सीपलाई जीवित राख्न पनि सहयोग गर्छन्।
+        </p>
+
+        <h3>कृषि र स्थानीय खाद्य विविधतासँग सम्बन्ध</h3>
+        <p>
+          सैयाँको मुख्य सामग्री कोदोको पिठो वा चामलको पिठो स्थानीय कृषि उत्पादनसँग प्रत्यक्ष रूपमा जोडिएको छ। कोदो र चामल दुवै स्थानीय रूपमा उत्पादन हुने प्रमुख अन्न भएकाले यसको प्रयोगले स्थानीय अन्नको विविध उपयोग र खाद्य आत्मनिर्भरतालाई पनि देखाउँछ।
+        </p>
+        <p>
+          परम्परागत खानाको संरक्षण गर्नु भनेको केवल पुरानो स्वाद जोगाउनु होइन। यसले स्थानीय बाली, खाद्य परम्परा, ज्ञान र कृषि–संस्कृतिसँग जोडिएको सम्बन्धलाई पनि निरन्तरता दिन सक्छ।
+        </p>
+
+        <h3>साथीहरूसँग सैयाँ बनाउँदाको अनुभव</h3>
+        <p>
+          हामीले यो परम्परागत परिकार साथीहरूसँग मिलेर आफैँ तयार गर्यौँ। सामग्री तयार गर्ने, कोदोको पिठो वा चामलको पिठो भिजाउने, घ्यूमा भुट्ने र अन्तिममा सैयाँ तयार गर्ने प्रक्रियामा सबैले आ–आफ्नो भूमिका निभायौँ। तयार भएपछि हामीले सैयाँलाई तातो चियासँग सँगै बसेर खायौँ।
+        </p>
+        <p>
+          यो अनुभवले परम्परागत खाना केवल स्वादका लागि मात्र नभई साथीभाइसँग समय बिताउने, स्थानीय खाद्य संस्कृतिबारे सिक्ने र पुराना पाककला अभ्यासलाई अनुभव गर्ने माध्यम पनि हुन सक्छ भन्ने महसुस गरायो।
+        </p>
+
+        <h3>सैयाँ बनाउने भिडियो</h3>
+        <div class="video">
+          <iframe
+            src="https://www.youtube-nocookie.com/embed/D_kLgmYIfp0"
+            title="सैयाँ बनाउने प्रक्रिया"
+            loading="lazy"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen></iframe>
+        </div>
+
+        <p>सैयाँ तयार गर्ने क्रममा खिचिएका तस्बिरहरू:</p>
+        <div class="gallery">
+          <img src="IMG_0026.jpeg" alt="सैयाँ तयार गर्ने क्रममा" loading="lazy" decoding="async">
+          <img src="IMG_0022.jpeg" alt="तयार गरिएको सैयाँ" loading="lazy" decoding="async">
+        </div>
+
+        <h3>अन्तिम स्वाद</h3>
+        <p>
+          सैयाँ सरल सामग्रीबाट तयार हुने भए पनि यसको स्वादसँग स्थानीय संस्कृति, कृषि उत्पादन र पारिवारिक परम्पराको सम्बन्ध जोडिएको हुन्छ। एक कप तातो चियासँग तात्तातो सैयाँको स्वाद लिनु सुदूरपश्चिमको घरेलु खाद्य परम्परालाई अनुभव गर्ने एउटा सरल तर रमाइलो तरिका हो।
+        </p>
+        <p>
+          परम्परागत खाना एउटा recipe मात्र होइन—यसले स्थानीय बाली, ज्ञान, सम्झना र संस्कृतिलाई पनि पुस्तौँसम्म बोकेर लैजान्छ।
+        </p>
+      </div>
+
+      <div class="post-foot" lang="en">
+        <a class="back" href="#articles" style="margin-bottom:0">&larr; Back to articles</a>
+      </div>
+    </div>
+  </article>
+
+  <!-- ACADEMIC WORK -->
+  <section class="section" id="academic" aria-labelledby="academic-title">
+    <div class="wrap">
+      <h2 class="title" id="academic-title">Academic Work</h2>
+      <div class="academic">
+        <h3>B.Sc. Agriculture</h3>
+        <p>Agriculture and Forestry University (AFU), Nepal</p>
+        <p>
+          This section will contain selected academic projects,
+          articles, field experiences and agricultural work.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section contact" id="contact" aria-labelledby="contact-title">
+    <div class="wrap">
+      <h2 class="title" id="contact-title">Contact</h2>
+      <p>
+        For agriculture-related discussions, collaboration and
+        communication, you can connect with me through my social platforms.
+      </p>
+      <!-- Add your real link here, for example:
+           <a class="btn btn-light" href="mailto:you@example.com">Email me</a> -->
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; 2026 Pradip Babu Khadka</p>
+    <p>Agriculture &bull; Knowledge &bull; Sustainability</p>
   </div>
-
-</section>
-<section id="about">
-  <h2>About Me</h2>
-  <div class="card">
-    <p>
-        I am a B.Sc. Agriculture student at Agriculture and Forestry University,
-        Nepal, with an interest in agro-biodiversity, sustainable agriculture,
-        climate resilience, and agricultural development.
-    </p>
-    <br>
-    <p>
-      Through this blog, I aim to share ideas and perspectives on
-      agriculture, agro-biodiversity, sustainability, climate
-      resilience and agricultural development.
-    </p>
-  </div>
-</section>
-
-<section id="articles">
-  <h2>Articles</h2>
-
-  <div class="card">
-    <h3>
- <a href="#article" onclick="document.getElementById('article').style.display='block';" style="color:#1f5c3a; text-decoration:none;">
-    बाढीपछि, किसानले के रोप्ने?
-  </a>
-</h3>
-    <p>
-      नेपालमा कृषि-जैविक विविधतामार्फत विपद्पछिको कृषि पुनरुत्थानबारे पुनर्विचार।
-    </p>
-    <p>
-      बाढीपछि कृषि पुनरुत्थान गर्दा बाली तथा प्रजाति विविधता, किसानको लाभ, बीउ प्रणाली, बजार र जलवायु उत्थानशीलतालाई कसरी जोड्न सकिन्छ भन्नेबारे यस लेखले चर्चा गर्छ।
-    </p>
-    <a class="button" href="#article" onclick="document.getElementById('article').style.display='block';">Read Full Article →</a>
-  </div>
-</section>
-
-<section id="article" style="display:none;">
-    <h2>बाढीपछि, किसानले के रोप्ने?</h2>
-    <p>
-      नेपालमा कृषि-जैविक विविधतामार्फत विपद्पछिको कृषि पुनरुत्थानबारे पुनर्विचार
-       </p>
-      
-      <img src="IMG_0134.jpeg" alt="Flood-affected agricultural land in Nepal" style="width:100%; max-width:900px; display:block; margin:25px auto; border-radius:10px;">
-      <div class="card">
-        
-    
-  <h3>१. बाढी पछिको गलत प्रश्न</h3>
-
-<p>
-जब बाढीले खेतमा तयार भएको बाली नष्ट गर्छ, किसानहरू, कृषि प्रचारकर्मीहरू र राहत एजेन्सीहरूले सामान्यतया सोध्छन्: अब के रोप्ने? पूर्वनिर्धारित उत्तर त्यत्तिकै सरल छ, हराएको बीउ प्रतिस्थापन गर्नु र पहिले जस्तै उत्पादन पुनः सुरु गर्नु हो। धेरैजसो अवस्थामा यो सही निर्णय हो। तर ठूलो बाढीपछि, त्यो जमिन पहिले जस्तो थियो, अब त्यस्तो नरहन सक्छ। तलछटले (Sediment) माथिल्लो माटोलाई पुरिदिन सक्छ, निकास तथा सिँचाइ संरचनाहरूमा क्षति पुग्न सक्छ, बाली लगाउने बाँकी समय छोटिन सक्छ र कुनै बेला खरिदकर्तासम्म उपज पुर्‍याउने सडक तथा बजारहरू सञ्चालनमा नरहन सक्छन्। यी अवस्थाहरूमा, हराएको कुरालाई प्रतिस्थापन गर्नाले नाम मात्रको उत्पादन पुनर्स्थापित हुन्छ, आवश्यक रूपमा लचिलोपन होइन।
-</p>
-
-<br>
-
-<p>
-२६ अगस्ट २०२६ मा नेपालको भोटेकोशी–त्रिशूली नदी करिडोरमा आएको आकस्मिक बाढीले यो भिन्नतालाई स्पष्ट पार्छ। खाद्य तथा कृषि संगठन (FAO) को प्रारम्भिक मूल्याङ्कन अनुसार, करिब १,८०० हेक्टर खेतीयोग्य जमिन (जसमा मुख्यतया धानबाली थियो) मा क्षति पुगेको र यसबाट करिब ७,७०० टन उत्पादनको नोक्सानी भएको देखिन्छ; साथै कृषि भूमि, माछापालन क्षेत्र, खाद्य भण्डार, सडक र कृषि पूर्वाधारहरू पनि प्रभावित भएका थिए (FAO, २०२६)। त्यसपछि नेपालको राष्ट्रिय योजना आयोग र राष्ट्रिय विपद् जोखिम न्यूनीकरण तथा व्यवस्थापन प्राधिकरणद्वारा गरिएको 'द्रुत क्षति तथा आवश्यकता मूल्याङ्कन' (RDNA) ले भने केही कम तथ्याङ्क प्रस्तुत गरेको छ, जसअनुसार १,६६९ हेक्टर धानबाली र ५,८४३ टन धानको क्षति हुनुका साथै १३७ हेक्टर तरकारी खेतीको जमिनमा पनि क्षति पुगेको थियो (NPC & NDRRMA; स्रोत: The Himalayan Times, २०२६)। यी दुई अनुमानबीचको भिन्नताले के देखाउँछ भने, क्षतिको आधारभूत परिमाणसमेत कहिले र कसरी मापन गरिन्छ भन्ने कुरामा निर्भर गर्दछ र पुनर्लाभसम्बन्धी योजना तर्जुमा गर्दा कुनै पनि एकल तथ्याङ्कलाई नै अन्तिम मान्नु हुँदैन।
-</p>
-
-<br>
-
-<p>
-यस लेखले सन् २०२६ को बाढीलाई एउटा दृष्टान्तका रूपमा लिँदै अलि फरक र कठिन प्रश्न उठाएको छ: के कृषि क्षेत्रको पुनरुद्धारको प्रक्रियालाई केवल बाढी आउनुअघिकै प्रणालीलाई यथावत दोहोर्‍याउने अवसरमा सीमित नराखी, अझ विविधतायुक्त र जलवायु-अनुकूल कृषि प्रणाली निर्माण गर्ने अवसरमा परिणत गर्न सकिन्छ?
-</p><br>
-
-<h3>२. पुनरुद्धार जमिनबाट सुरु गर्नुपर्छ, बीउबाट होइन</h3>
-
-<p>
-बाढीपछिको कृषि-सम्बन्धी पहिलो निर्णयलाई प्रायः एउटा व्यवस्थापकीय वा 'लजिस्टिक' समस्याका रूपमा हेरिन्छ अर्थात्, कति छिटो बीउ वितरण गर्न सकिन्छ? तर बाढीले सबै खेतमा एउटै किसिमको असर पार्दैन। कतिपय खेतको माथिल्लो तहको माटो कटानका कारण बगेर जान्छ; कतिपयमा मलिलो तलछटको पातलो तह जम्मा हुन्छ; त कतिपय खेत एक मिटर वा सोभन्दा बढी बालुवामुनि पुरिन्छन्। बाढी प्रभावित एउटै उपत्यकाभित्र पनि पानीको निकास र सिँचाइको अवस्था अप्रत्याशित रूपमा फरक-फरक हुन सक्छ। त्यसैले, बालीको कुनै पनि जात छनोट गर्नुअघि जमिनको अवस्थालाई राम्ररी बुझ्नु आवश्यक हुन्छ।
-</p>
-
-<br>
-
-<p>
-सन् २००८ मा नेपालमा आएको कोशी बाढीसम्बन्धी प्रमाणले यसको प्रभाव कति गम्भीर हुन सक्छ भन्ने कुरा स्पष्ट पार्छ। काफ्ले, खनाल र दाहाल (२०१७) ले बाढीको नयाँ बहाव क्षेत्रमा थिग्रेको माटो वा तलछट (sediment) को अध्ययन गर्दा, कम प्रभावित 'हरियो क्षेत्र' (green zones) मा यसको औसत मोटाइ करिब ०.१० मिटर र बाँध फुटेको मुख्य क्षेत्रमा ४.५ मिटर रहेको पाइयो; साथै, बहाव क्षेत्रबाट टाढा जाँदै गर्दा माटोको कणको बनोट क्रमशः मसिनो हुँदै गएको देखियो। सुनसरी जिल्लाका सबैभन्दा बढी प्रभावित गाउँहरू (श्रीपुर, हरिपुर र पश्चिमी कुशाह) मा खेतीयोग्य जमिनको करिब एक चौथाइ भाग बाढीको आठ वर्षपछि पनि बाँझै रह्यो, किनकि त्यहाँ परम्परागत खेतीका लागि अनुपयुक्त मोटो र बालुवायुक्त तलछट थुप्रिएको थियो (काफ्ले लगायत, २०१७)। यसको विपरीत, जहाँ तलछटको तह पातलो र कणहरू मसिनो थिए, त्यहाँ किसानहरूले नयाँ माटोलाई पहिलेभन्दा बढी उर्वर पाए र तरकारी तथा नगदे बालीतर्फ सफलतापूर्वक आकर्षित भए; कतिपय अवस्थामा त उनीहरूको आम्दानीमा २०० देखि ३०० प्रतिशतसम्म वृद्धि भयो (Kafle et al., 2017)।
-</p>
-
-<br>
-
-<p>
-यसबाट सिक्नुपर्ने पाठ यो होइन कि बाढीले डुबेको जमिन पूर्ण रूपमा बर्बाद हुन्छ वा पूर्ण रूपमा सुध्रिन्छ; बरु, बाढीले प्रभावित हरेक खेतका लागि पुनर्स्थापनासम्बन्धी एउटै उपाय लागू गर्न सकिँदैन भन्ने हो। मसिनो गेग्रान/तलछट वा माटोको पातलो तहले एउटा वास्तविक अवसर सिर्जना गर्न सक्छ; तर खस्रो बालुवाको बाक्लो तहले भने वर्षौंसम्म परम्परागत खेतीपातीलाई अव्यावहारिक बनाउन सक्छ। यस अर्थमा, बालीको छनोट गर्नुअघि माटोको बनोट, गेग्रान/तलछटको तहको मोटाइ, पानी निकासको अवस्था र सिँचाइको उपलब्धता जस्ता विषयहरूमा विचार पुर्‍याउनु आवश्यक हुन्छ, किनकि पुनर्स्थापनाको कार्य बाली लगाउने निर्णय हुनुभन्दा पहिले माटो व्यवस्थापनसम्बन्धी निर्णय हो।
-</p>
-<br>
-
-<h3>३. कृषि-जैविक विविधता भनेको धेरै बालीहरू उब्जाउनु मात्र होइन</h3>
-
-<p>
-सामान्य बोलचालमा कृषि-जैविक विविधतालाई प्रायः विभिन्न प्रकारका बाली प्रजातिहरू उब्जाउने कुरासँग जोडेर हेरिन्छ। तर, यसको अवधारणा त्योभन्दा निकै फराकिलो छ। यसमा विभिन्न प्रजातिहरू, एउटै प्रजातिका विभिन्न किसिमहरू र आनुवंशिक गुणहरूबीचको विविधता समावेश हुन्छ; साथै, यसमा बाली लगाउने समय, बाली लगाउने क्रम तथा एउटै कृषि-फार्ममा बाली, पशुपन्छी र रूखहरूको संयोजनमा पाइने विविधता पनि समेटिन्छ। विपद्पछिको पुनरुद्धारका लागि यो भिन्नता महत्त्वपूर्ण छ; किनभने यसको अर्थ किसानले विविधता अपनाउनका लागि धान खेती छोड्नु पर्दैन।
-</p>
-
-<br>
-
-<p>
-सडकबाट हेर्दा बाली उस्तै देखिए पनि, परम्परागत धानको सट्टा बाढी सहन सक्ने जातको धान रोप्नु आफैंमा आनुवंशिक तथा जातगत विविधताको एक रूप हो। नेपाल कृषि अनुसन्धान परिषद् (NARC) को जातहरूको सूचीअनुसार, 'साम्बा मन्सुली सब-१' (Samba Mansuli Sub-1) मसिनो दाना भएको र डुबान सहन सक्ने जात हो। सन् २०११ मा सिफारिस गरिएको यो जात पाक्न १४५–१५० दिन लाग्छ र यसलाई समुद्र सतहबाट करिब ७०० मिटरसम्मको उचाइमा रहेको तराई क्षेत्रका लागि उपयुक्त मानिन्छ। सन् २०१८ मा सिफारिस गरिएको 'बहुगुणी-२' (Bahuguni-2) पाक्न करिब १४२ दिन लाग्ने जात हो; यसमा डुबान तथा बालीमा दाना लाग्ने वा फूल फुल्ने चरणमा खडेरी सहन सक्ने दुवै गुण पाइन्छ, जसले गर्दा एउटै मौसममा बाढी र खडेरी दुवैको जोखिम हुने क्षेत्रहरूमा यो उपयोगी हुन्छ। बाढीको जोखिम हुने र डुबान भइरहने क्षेत्रहरूका लागि सिफारिस गरिएको 'गंगा सागर-२' (Ganga Sagar-2) पाक्न स्रोतअनुसार करिब १३०–१४५ दिन लाग्ने जात हो र यसले उस्तै वातावरणीय अवस्थाका लागि छोटो अवधिमा पाक्ने विकल्प प्रदान गर्दछ।
-</p>
-
-<br>
-
-<p>
-यी उदाहरणहरूले एउटा सामान्य सिद्धान्ततर्फ संकेत गर्छन्: विपद्पछिको विविधीकरणको उद्देश्य 'अधिकतम विविधता' नभई 'उपयुक्त विविधता' हुनुपर्छ। धान खेतीका लागि अझै उपयुक्त जमिन भएका किसानले धानको जात परिवर्तन गरेर धान खेती नै निरन्तरता दिनु उचित हुन सक्छ। तर, बालुवाले पुरिएको जमिन भएका किसानका लागि भने पुनरुद्धारको बिल्कुलै फरक रणनीति आवश्यक पर्न सक्छ, जसमा बालीबाहेक अन्य कुनै कार्यबाट सुरुवात गर्नुपर्ने अवस्था पनि आउन सक्छ।
-</p>
-<br>
-
-<h3>४. बाली रोप्ने समय-सीमा (Planting Window) पनि विविधताको एक रूप हो</h3>
-
-<p>
-बाढीले माटोलाई जति असर पुर्‍याउँछ, त्यति नै कृषि कार्यतालिकालाई पनि अस्तव्यस्त बनाउँछ। पानीको निकास सुचारु भएपछि, थिग्रेको माटो वा लेदो आंशिक रूपमा हटाइएपछि वा बाढीको पानी घटेपछि जमिन पुनः खेतीयोग्य बन्दासम्म, अर्को बाली लगाउने समय नजिकिइसकेको हुनाले किसानहरूसँग निकै कम समय बाँकी रहन सक्छ। यसले गर्दा बालीका प्रजाति वा जातहरूको विविधता मात्र नभई 'समयगत विविधता' (temporal diversity) पनि पुनर्लाभ वा पुनःस्थापनाको एउटा महत्त्वपूर्ण उपाय बन्न पुग्छ।
-</p>
-
-<br>
-
-<p>
-छोटो अवधिमा पाक्ने जातले कहिलेकाहीँ किसानलाई बाँकी रहेको छोटो समयभित्रै उत्पादन चक्र पूरा गर्न सम्भव बनाउँछ, जबकि लामो अवधिमा पाक्ने जात त्यति समयमा परिपक्व नहुन सक्छ। नेपालमा सिफारिस गरिएका धानका जातहरूमा बाली पाक्ने अवधिमा निकै भिन्नता पाइन्छ: 'राम धान' (Ram Dhan) करिब १३०–१३७ दिनमा पाक्छ र चितवन क्षेत्रमा लोकप्रिय छ; 'हार्दिनाथ-१' (Hardinath-1) र 'चैते-५' (Chaite-5) छोटो अवधिका वसन्ते धानका रूपमा ११०–१२५ दिनमा पाक्छन्; जबकि 'साम्बा मन्सुली सब-१' (Samba Mansuli Sub-1) जस्ता प्रतिकूल अवस्था सहन सक्ने विभिन्न जातहरू पाक्न करिब १४५–१५० दिन लाग्छ (NARC, n.d.)। तर, सबैभन्दा छोटो अवधिमा तयार हुने बाली नै स्वतः उत्तम विकल्प भने हुँदैन; किसानहरूले बालीको अवधिलाई उत्पादनको मात्रा, दानाको गुणस्तर, स्थानीय स्वादको प्राथमिकता, आवश्यक कृषि सामग्री र बजारको मागजस्ता पक्षहरूसँग दाँजेर हेर्नुपर्छ। यस सन्दर्भमा, 'लचिलोपन' (resilience) भन्नाले बाढीको सामना गरेर बाली बाँच्न सक्ने क्षमता मात्र होइन, बरु बाढीपछि पनि कृषि प्रणालीले उत्पादनको चक्र पूरा गर्न सक्ने क्षमता भन्ने पनि बुझिन्छ।
-</p>
-<h3>5. बाली विविधीकरणलाई सावधानीपूर्वक अघि बढाउनुपर्छ।</h3>
-
-<p>
-नयाँ बाली वा बाली लगाउने पद्धतिमा विविधीकरणले पुनरुत्थानको अर्को बाटो प्रदान गर्न सक्छ, तर नेपालको व्यापक विविधीकरणको विगतसम्बन्धी प्रमाणहरूले भने सावधानी अपनाउनुपर्ने सङ्केत गर्छन्। सन् १९९० देखि २०२२ सम्म नेपालमा बाली विविधीकरणसम्बन्धी नीति र अभ्यासको सन् २०२६ मा गरिएको एक व्यवस्थित समीक्षा (जसमा २३ वटा सरकारी तथा दातृ निकायका कार्यक्रमहरूको 'स्कोपिंग रिभ्यु' र राष्ट्रिय बाली तथ्याङ्कको Simpson's Diversity Index विश्लेषण समावेश थियो) ले के देखाएको छ भने, दशकौँदेखिको नीतिगत प्रतिबद्धताका बाबजुद पनि अन्नबालीबाहेक अन्य बालीतर्फको विविधीकरणको गति सामान्य मात्र रहेको छ; यसमा कमजोर बजार आबद्धता, अपर्याप्त भण्डारण तथा 'कोल्ड-चेन' पूर्वाधार, खण्डित मूल्य शृङ्खला, श्रम आप्रवासन तथा योजना र कार्यान्वयनबीचको खाडलजस्ता पक्षहरू बाधक बनेका छन् (Adhikari et al., 2026).
-</p>
-
-<p>
-यसले बाढीपछिको पुनर्लाभसम्बन्धी कार्यक्रमहरूका लागि एउटा विशेष चेतावनी दिन्छ। यदि बाढीपछि किसानहरूलाई उच्च मूल्यको तरकारी खेती गर्न प्रोत्साहित गरियो तर सडकहरू क्षतिग्रस्त नै रहे, भण्डारणको सुविधा उपलब्ध भएन र खरिदकर्ताहरू पनि नभए भने, उच्च उत्पादनले उच्च आम्दानी सुनिश्चित नगर्न सक्छ; बरु किसानहरूले बाली भित्र्याइसकेपछिको क्षति वा खेतमै कम मूल्य पाउने समस्याको सामना गर्नुपर्ने हुन सक्छ। अर्को शब्दमा भन्नुपर्दा, बजारको विविधीकरणबिना गरिने उत्पादनको विविधीकरणले जोखिमलाई कम गर्नुको सट्टा खेतबाट बजारसम्म मात्र सार्न सक्छ।
-</p>
-
-<p>
-बाली विविधीकरण धानमा आधारित प्रणालीलाई विस्थापित गरेर होइन, बरु सोही प्रणालीभित्रै पनि गर्न सकिन्छ। धानबालीपछि छोटो अवधिमा पाक्ने दलहन बाली (जस्तै: मसुरो वा मुगी) लगाउने बाली चक्र अपनाउँदा मुख्य बालीलाई नहटाईकन आम्दानीको दोस्रो स्रोत सिर्जना गर्न र पछिल्लो बालीका लागि नाइट्रोजनको लाभ प्राप्त गर्न सकिन्छ; नेपालमा धानमा आधारित बाली चक्रसम्बन्धी अध्ययनहरूले यस्ता प्रणालीहरूको आर्थिक तथा ऊर्जासम्बन्धी कार्यक्षमताको विश्लेषण गरेका छन् (Pokhrel et al., 2017)। यसको मुख्य सन्देश के हो भने, विपद्पछिको बाली विविधीकरणलाई सबै ठाउँमा लागू हुने एकमुष्ट समाधानका रूपमा नभई, सम्बन्धित स्थानविशेषको अवस्था र आर्थिक यथार्थताका आधारमा मूल्याङ्कन गरिनुपर्छ।
-</p>
-<h3>6. किसानहरूलाई एक्लै निर्णय गर्न छोड्नु हुँदैन।</h3>
-
-<p>
-बाढी सहन सक्ने र स्थानीय वातावरणमा राम्रोसँग घुलमिल हुन सक्ने जातको धान भए पनि, यदि किसानले समयमै त्यसको बीउ पाउन सकेनन् वा आफ्नो खेतका लागि कुन जात उपयुक्त हुन्छ भन्ने जानकारी लिने कुनै उपाय पाएनन् भने त्यस्तो जातको खासै उपयोगिता हुँदैन। चितवनका भरतपुर र माडी नगरपालिकाका २६८ घरधुरीमा सन् २०२५ मा गरिएको एक अध्ययनले बाढी सहन सक्ने धानका जातहरूको प्रयोगबारे विश्लेषण गर्‍यो। उक्त अध्ययनले किसानहरूबीचको आपसी सञ्जाल र सामाजिक सिकाइले कुनै घरधुरीले नयाँ जातको धान अपनाउने वा नअपनाउने निर्णयमा महत्त्वपूर्ण प्रभाव पार्ने गरेको तथ्य पत्ता लगायो (Akitaya, Saito, & Pandit, 2025)। यसले कृषि लचिलोपनको बारेमा एउटा फराकिलो सत्यलाई औंल्याउँछ: प्राविधिक रूपमा उपयुक्त प्रजाति केवल एक पटक मात्र लचिलोपनको उपकरण बन्छ जब यो कार्यशील बीउ प्रणाली, विस्तार सेवाहरू, र साथी सञ्जालहरू मार्फत किसानहरूसँग जोडिन्छ, प्रविधि एक्लैले मात्र यात्रा गर्दैन।
-</p>
-
-<p>
-यो विशेष गरी विपद्को लगत्तैको अवस्थामा सान्दर्भिक हुन्छ, जब छिटो निर्णय लिनुपर्ने हुन्छ र सूचना आदानप्रदानका सामान्य माध्यमहरू आफैँ अवरुद्ध भएका हुन सक्छन्। प्रभावित जिल्लामा एउटै मात्र जात समान रूपमा वितरण गर्नुको सट्टा, प्रसार सेवाहरूले प्रदर्शन प्लट र निर्णय लिन सघाउने सरल साधनहरूको सहयोगमा स्थानीय परिवेश सुहाउँदा केही सीमित विकल्पहरू उपलब्ध गराउन सक्छन्; उदाहरणका लागि:
-</p>
-
-<p>
-●जहाँको जमिन धान खेतीका लागि उपयुक्त छ: धान खेतीलाई निरन्तरता दिनुहोस्, तर प्रतिकूल अवस्था सहन सक्ने(Stress tolerant) वा छोटो अवधिमा पाक्ने(Short duration) जातको छनोट गर्नेबारे विचार गर्नुहोस्।
-</p>
-
-<p>
-●बारम्बार डुबान हुने सम्भावना भएको ठाउँमा: डुबान सहन सक्ने धान(Submergence tolerant rice)लाई प्राथमिकता दिनुहोस् र सुरक्षा(Insurance)को उपायका रूपमा जातहरूको विविधता कायम राख्नुहोस्।
-</p>
-
-<p>
-● जहाँ बाली रोप्ने समय(Planting window)को दायरा साँघुरिएको छ: त्यहाँ छोटो अवधिमा तयार हुने बाली वा जातहरू(shorter-duration crops or varieties) लगाउनेबारे विचार गर्नुहोस्, जसले आफ्नो उत्पादन चक्र पूरा गर्न सकून्।
-</p>
-
-<p>
-●जहाँ माटो वा गेग्रान/तलछटको तह बाक्लो छ: अघिल्लो सिजनको बाली नै फेरि उम्रिन्छ भनी मान्नुको सट्टा, केही रोप्नुअघि त्यसको गहिराइ र बनोटको जाँच गर्नुहोस्।
-</p>
-
-<p>
-●जहाँ उत्पादन सम्भव छ तर बजारमा क्षति पुगेको छ: त्यहाँ उत्पादनसम्बन्धी कुनै पनि सहयोगलाई भण्डारण, ढुवानी र बजार पहुँच (market linkages) मा गरिने लगानीसँग जोड्नुहोस्।
-</p>
-
-<p>
-यस्तो विकल्पहरूको सूची/ मेनु-मा आधारित दृष्टिकोणले बाढी प्रभावित प्रत्येक खेतलाई एउटै ठान्ने प्रवृत्तिलाई पन्छाउँछ, साथै समयको चापका बाबजुद पनि कृषि प्रसारकर्मीहरूलाई काम गर्नका लागि विकल्पहरूको व्यवस्थापन गर्न सकिने किसिमको दायरा प्रदान गर्छ।
-</p>
-<h3>7. "प्रतिस्थापन" देखि "अझ राम्रोसँग पुनर्निर्माण" सम्म: पुनर्लाभ/पुनरुद्धारको एउटा खाका</h3>
-
-<p>
-माथि उल्लेखित तर्कहरूलाई विपद्पछिको कृषि पुनरुत्थान/पुनर्लाभका लागि छ-चरण(Six step)को प्रक्रियाका रूपमा यसरी सारांशित गर्न सकिन्छ: मूल्याङ्कन, पुनर्स्थापना, छनोट, विविधीकरण, आबद्धता र अनुगमन(assess, restore, select, diversify, connect, and monitor)
-</p>
-
-<p>
-●कुनै पनि बाली सिफारिस गर्नुअघि जमिन, माटोको तलछट(sediment), जल प्रणाली, पूर्वाधार, बीउको उपलब्धता, जनशक्ति र बजारको अवस्थाको मूल्याङ्कन गर्नुहोस्।
-</p>
-
-<p>
-●खेतीका लागि आवश्यक आधारभूत अवस्थाहरू, जस्तै निकास प्रणाली, सिँचाइ, सडक र अन्य अत्यावश्यक पूर्वाधारहरूको पुनर्स्थापना गर्नुहोस्; किनकि बाली लगाउनुअघि यस्ता पूर्वाधारको पुनर्स्थापना नै यथार्थपरक पहिलो कदम हो।
-</p>
-
-<p>
-●सम्पूर्ण जिल्लाभरि एउटै मात्र विकल्प वितरण गर्नुको सट्टा स्थानीय जमिन र बजारको अवस्था अनुसार बाली तथा तिनका जातहरू छनौट गर्नुहोस्।
-</p>
-
-<p>
-●एकमुष्ट वा सामान्य निर्देशनको रूपमा नभई, कृषि-वैज्ञानिक तथा आर्थिक दृष्टिकोणले उपयुक्त हुने गरी बालीका प्रजाति, किसिम, रोप्ने समय वा बाली चक्रमा विविधता ल्याउनुहोस्।
-</p>
-
-<p>
-●किसानहरूलाई बीउ आपूर्तिकर्ता, प्रसार सेवा, सहकारी, खरिदकर्ता र भण्डारण सुविधासँग जोड्नुहोस्; किनभने उपयुक्त जातको बीउ त्यति नै उपयोगी हुन्छ जति त्यसलाई उपलब्ध गराउने प्रणाली।
-</p>
-
-<p>
-●उत्पादनको परिमाण मात्र नभई उत्पादन लागत, खुद आम्दानी, आयको स्थिरता, खाद्य सुरक्षा, माटोको अवस्था र भविष्यमा आउन सक्ने अर्को विपद्को सामना गर्ने कृषि फार्मको क्षमता जस्ता पक्षहरूको पनि अनुगमन गर्नुहोस्।
-</p>
-
-<p>
-यस संरचनालाई सन् २०२६ को बाढीपछि गरिएको कुनै विशेष स्थलगत परीक्षणमार्फत प्रमाणित भइसकेको 'मोडल' भन्दा पनि एउटा प्रस्तावित विश्लेषणात्मक मार्गका रूपमा बुझ्नु उपयुक्त हुन्छ; किनकि यस्तो अध्ययन हालसम्म भएको छैन। यसको मुख्य योगदान भनेको बीउ वितरणलाई केवल एक स्वतन्त्र प्राविधिक समाधानका रूपमा मात्र नहेरी, पारिस्थितिक, आर्थिक र संस्थागत पक्षहरूलाई पुनर्लाभको एउटै प्रक्रियामा समेट्नु हो।
-</p>
-<h3>8. निष्कर्ष: धान खेतीलाई त्याग्ने होइन, तर यसैमा मात्र भर पर्ने पनि होइन।</h3>
-
-<p>
-यसको अर्थ नेपालले धान खेतीबाट पछि हट्नुपर्छ भन्ने तर्क होइन। तराईदेखि पहाडसम्मका खाद्य प्रणाली र ग्रामीण जीविकोपार्जनमा धानको भूमिका अझै पनि केन्द्रीय छ, र यहाँ समीक्षा गरिएका कुनै पनि प्रमाणले यसको विपरीत कुरा संकेत गर्दैनन्। बाढीपछिको पुनर्लाभबाट सिक्न सकिने पाठ अलि सीमित र एक अर्थमा भन्नुपर्दा बढी संयमित प्रकृतिको छ: बाढीले जमिनको स्वरूप नै परिवर्तन गरिसकेपछि, कुनै एउटा बाली वा जातलाई नै स्वतः एकमात्र विकल्पका रूपमा मान्नु हुँदैन।
-</p>
-
-<p>
-कुनै किसानका लागि लचिलोपन(Resilience)को अर्थ डुबान सहन सक्ने जातको धान खेतीमा फर्कनु हुन सक्छ। अर्कोतर्फ, बाली लगाउने उपयुक्त समय खुम्चिएका किसानका लागि यसको अर्थ छोटो अवधिमा पाक्ने जातको धान रोज्नु हुन सक्छ। तेस्रो किसानका लागि, यसको अर्थ धान र दलहनको बाली चक्र (rotation) अपनाउनु हुन सक्छ, जसले जोखिमलाई दुई बालीमा बाँड्न मद्दत गर्छ। जुन जमिन एक मिटर वा सोभन्दा बढी बाढीजन्य गेग्रान(Sediment) वा माटोमुनि पुरिएको छ, त्यहाँ तत्काल बाली लगाउनुको सट्टा जमिनको पुनर्स्थापना गर्नु वा केही समय पर्खनु उपयुक्त पहिलो कदम हुन सक्छ। भीषण बाढीले एकैसाथ विभिन्न बालीनाली र तिनलाई सघाउने प्रणालीहरूमा क्षति पुर्‍याउन सक्ने भएकाले, केवल बाली विविधीकरणले मात्र विपद्को जोखिम हटाउन सक्दैन; यसका लागि बाढी क्षेत्रको उचित व्यवस्थापन, पूर्वाधार विकास, पूर्वसूचना प्रणाली र समग्र विपद् पूर्वतयारी जस्ता उपायहरूलाई पनि सँगै अघि बढाउनु आवश्यक हुन्छ।
-</p>
-
-<p>
-तसर्थ, यसको मुख्य तर्क "धेरै बाली लगाउनुहोस्" भन्ने होइन। बरु, विपद्पछिको कृषि पुनरुत्थान स्थानीय परिवेशमा आधारित र जैविक विविधतायुक्त हुनुपर्छ, साथै ती निर्णयहरू अपनाउनुपर्ने किसानहरूका लागि यो आर्थिक रूपमा व्यावहारिक पनि हुनुपर्छ। बाढीपछि केवल "हामीले कुन बाली गुमायौं?" भन्ने प्रश्न मात्र पर्याप्त हुँदैन; बरु "यहाँ कस्तो कृषि प्रणाली अपनाउँदा बाली पुनर्स्थापना गर्न, खाद्य तथा आम्दानी प्राप्त गर्न, उपयोगी विविधताको संरक्षण गर्न र भविष्यमा आउने अर्को विपद्को सामना गरेर पनि टिक्न सकिन्छ?" भन्ने कुरामा पनि ध्यान दिनुपर्छ।
-</p>
-<h3>References</h3>
-
-<p>
-Adhikari, M., Nandi, R., Thapa, G., Kishore, A., Karmacharya, S., &amp; Pokharel, P. (2026). Crop diversification in Nepal (1990–2022): Policies, practices, and pathways forward. Agricultural Environment and Sustainability, 1(3), 100026. https://doi.org/10.1016/j.ages.2026.100026
-</p>
-
-<p>
-Akitaya, R., Saito, Y., &amp; Pandit, R. (2025). Assessment of factors influencing farmers’ adoption of flood-tolerant rice varieties in Nepal. International Journal of Agricultural Sustainability, 23(1), 2551998. https://doi.org/10.1080/14735903.2025.2551998
-</p>
-
-<p>
-Food and Agriculture Organization of the United Nations. (2026, September 11). Nepal floods damage 1,800 hectares of crops and kill thousands of livestock [Interview with Beth Bechdol]. FAO.
-</p>
-
-<p>
-International Rice Research Institute. (2022, August 30). Nepal releases seven new and improved rice varieties to increase domestic rice production. IRRI News.
-</p>
-
-<p>
-Kafle, K. R., Khanal, S. N., &amp; Dahal, R. K. (2017). Consequences of Koshi flood 2008 in terms of sedimentation characteristics and agricultural practices. Geoenvironmental Disasters, 4, 4. https://doi.org/10.1186/s40677-017-0069-x
-</p>
-
-<p>
-Kafle, K. R., Khanal, S. N., &amp; Dahal, R. K. (2020). Impacts of long-term flood-induced sedimentation on agricultural land: Case study of the 2008 Koshi flood in Eastern Nepal. Kathmandu University Journal of Science, Engineering and Technology, 14(1).
-</p>
-
-<p>
-National Agricultural Research Council [NARC]. (n.d.). Released and registered rice varieties of Nepal: Package of practices. Government of Nepal.
-</p>
-
-<p>
-Pokhrel, S., et al. (2017). Rice-based cropping systems and their economic and energy performance in Nepal. Journal of Environmental Management, 197, 70–79.
-</p>
-
-<p>
-The Himalayan Times. (2026, September 14). Bhotekoshi-Trishuli floods cause Rs 1.09 billion crop damage, Rs 1.11 billion livestock losses.
-</p>
-  </div>
-</section>
-<section id="saiya">
-  <h2>सैयाँ (Saiya): सुदूरपश्चिमको परम्परागत खाजा</h2>
-
-  <img src="IMG_0026.jpeg"
-       alt="सैयाँ (Saiya) - सुदूरपश्चिमको परम्परागत खाजा"
-       style="width:100%; max-width:900px; display:block; margin:25px auto; border-radius:12px;">
-
-  <div class="card">
-    <p>
-      सुदूरपश्चिम नेपालको परम्परागत खाद्य संस्कृतिमा सैयाँ (Saiya/Saiyaa) एउटा विशेष स्थानीय खाजाका रूपमा परिचित छ। यो अन्य ठाउँमा पाइने दूधमा पकाइने पातलो सेवैयाँभन्दा फरक प्रकारको परिकार हो। परम्परागत रूपमा कोदोको पिठो (Finger millet flour) वा चामलको पिठो (Rice flour) लाई घ्यूमा भुटेर गुड वा चिनी मिसाई तयार गरिने सैयाँ स्वादिलो, पौष्टिक र सजिलै तयार गर्न सकिने घरेलु खाजा हो।
-    </p>
-    <p>
-      सैयाँ केवल एउटा परिकार मात्र होइन; यसले स्थानीय कृषि उत्पादन, पारिवारिक ज्ञान, आतिथ्य र पुस्तौँदेखि चलिआएको खाद्य परम्परालाई पनि जोड्छ।
-    </p>
-    <h3>🥣 आवश्यक सामग्री</h3>
-    <ul>
-      <li>कोदोको पिठो (Finger millet flour) वा चामलको पिठो (Rice flour) — २ कप</li>
-      <li>शुद्ध घ्यू — ४–५ चम्चा</li>
-      <li>दूध वा पानी — करिब ½ लिटर</li>
-      <li>गुड वा चिनी — स्वादअनुसार</li>
-      <li>वैकल्पिक रूपमा: बदाम, काजु वा अन्य सुक्खा फलफूल स्वाद र सुगन्ध बढाउन प्रयोग गर्न सकिन्छ</li>
-    </ul>
-    <h3>👩‍🍳 बनाउने तरिका</h3>
-    <h4>१. पिठो तयार गर्ने</h4>
-    <p>
-      कोदोको पिठो वा चामलको पिठो एउटा भाँडामा राख्नुहोस्। त्यसमा दूध वा पानी थोरै–थोरै छर्कँदै हातले हल्का मोल्नुहोस्। पिठोलाई डल्लो वा पातलो लेदो बनाउनु हुँदैन। हल्का भिजेको र दानादार बनावट आउने गरी तयार गर्नुहोस्।
-    </p>
-    <h4>२. घ्यू तताउने</h4>
-    <p>
-      भारी तल्लो भएको कराही वा प्यानमा घ्यू तताउनुहोस्। मध्यम आँचमा घ्यू तताउँदा यसको सुगन्ध आउन थाल्छ।
-    </p>
-    <h4>३. पिठो भुट्ने</h4>
-    <p>
-      तयार गरिएको दानादार कोदोको पिठो वा चामलको पिठो घ्यूमा हाल्नुहोस् र आँच कम गर्नुहोस्। लगातार चलाउँदै बिस्तारै भुट्नुहोस्। पिठो समान रूपमा पाक्न र नजल्नका लागि यो चरणमा निरन्तर चलाउनु महत्त्वपूर्ण हुन्छ।
-    </p>
-    <h4>४. गुड वा चिनी मिसाउने</h4>
-    <p>
-      पिठो गाढा सुनौलो हुँदै सुगन्ध आउन थालेपछि गुड वा चिनी थप्नुहोस्। गुड प्रयोग गर्दा सैयाँमा अझ गहिरो र परम्परागत स्वाद आउँछ।
-    </p>
-    <h4>५. अन्तिम तयारी</h4>
-    <p>
-      कम आँचमा थप ३–५ मिनेट चलाउँदै पकाउनुहोस्। गुड पग्लिएर भुटेको कोदोको पिठो वा चामलको पिठोसँग राम्रोसँग मिसिएपछि सैयाँ तयार हुन्छ।
-    </p>
-    <h4>६. परोस्ने</h4>
-    <p>
-      तयार सैयाँलाई प्लेटमा निकालेर तात्तातै परोस्नुहोस्। सैयाँ प्रायः एक कप तातो चियासँग खाँदा यसको स्वाद अझ राम्रो लाग्छ। चाहनाअनुसार माथिबाट बदाम, काजु वा अन्य सुक्खा फलफूल पनि थप्न सकिन्छ।
-    </p>
-    <h3>🏔️ सांस्कृतिक महत्व</h3>
-    <p>
-      सुदूरपश्चिममा परम्परागत खानाहरू स्थानीय जीवनशैली, आतिथ्य र पारिवारिक सम्बन्धसँग जोडिएका छन्। सैयाँ पनि यस्तै घरेलु खाजामध्ये एक हो। विशेषगरी घरमा पाहुना आउँदा वा परिवार तथा आफन्तहरू सँगै हुँदा स्थानीय सामग्रीबाट तयार गरिएको खाजा परोस्नु आतिथ्यको एउटा माध्यमका रूपमा लिन सकिन्छ।
-    </p>
-    <p>
-      यस प्रकारका परम्परागत परिकारले स्थानीय खाद्य ज्ञान र पुस्तौँदेखि हस्तान्तरण हुँदै आएको खाना बनाउने सीपलाई जीवित राख्न पनि सहयोग गर्छन्।
-    </p>
-    <h3>🌱 कृषि र स्थानीय खाद्य विविधतासँग सम्बन्ध</h3>
-    <p>
-      सैयाँको मुख्य सामग्री कोदोको पिठो वा चामलको पिठो स्थानीय कृषि उत्पादनसँग प्रत्यक्ष रूपमा जोडिएको छ। कोदो र चामल दुवै स्थानीय रूपमा उत्पादन हुने प्रमुख अन्न भएकाले यसको प्रयोगले स्थानीय अन्नको विविध उपयोग र खाद्य आत्मनिर्भरतालाई पनि देखाउँछ।
-    </p>
-    <p>
-      परम्परागत खानाको संरक्षण गर्नु भनेको केवल पुरानो स्वाद जोगाउनु होइन। यसले स्थानीय बाली, खाद्य परम्परा, ज्ञान र कृषि–संस्कृतिसँग जोडिएको सम्बन्धलाई पनि निरन्तरता दिन सक्छ।
-    </p>
-    <h3>👥 साथीहरूसँग सैयाँ बनाउँदाको अनुभव</h3>
-    <p>
-      हामीले यो परम्परागत परिकार साथीहरूसँग मिलेर आफैँ तयार गर्यौँ। सामग्री तयार गर्ने, कोदोको पिठो वा चामलको पिठो भिजाउने, घ्यूमा भुट्ने र अन्तिममा सैयाँ तयार गर्ने प्रक्रियामा सबैले आ–आफ्नो भूमिका निभायौँ। तयार भएपछि हामीले सैयाँलाई तातो चियासँग सँगै बसेर खायौँ।
-    </p>
-    <p>
-      यो अनुभवले परम्परागत खाना केवल स्वादका लागि मात्र नभई साथीभाइसँग समय बिताउने, स्थानीय खाद्य संस्कृतिबारे सिक्ने र पुराना पाककला अभ्यासलाई अनुभव गर्ने माध्यम पनि हुन सक्छ भन्ने महसुस गरायो।
-    <h3>🎥 सैयाँ बनाउने भिडियो</h3>
-
-<div style="position:relative; width:100%; max-width:900px; margin:25px auto; aspect-ratio:16/9;">
-  <iframe
-    src="https://www.youtube.com/embed/D_kLgmYIfp0"
-    title="सैयाँ बनाउने प्रक्रिया"
-    style="width:100%; height:100%; border:0; border-radius:12px;"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-    allowfullscreen>
-  </iframe>
-</div>
-      यहाँ हामीले सैयाँ तयार गर्ने क्रममा खिचिएका तस्बिरहरू राखिनेछन्।
-    </p>
-   <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:20px; margin-top:25px;">
-
-  <img src="IMG_0026.jpeg"
-       alt="सैयाँ तयार गर्ने क्रममा"
-       style="width:100%; border-radius:12px; box-shadow:0 5px 20px #0000000b;">
-
-  <img src="IMG_0022.jpeg"
-       alt="तयार गरिएको सैयाँ"
-       style="width:100%; border-radius:12px; box-shadow:0 5px 20px #0000000b;">
-
-</div>
-    <h3>🍵 अन्तिम स्वाद</h3>
-    <p>
-      सैयाँ सरल सामग्रीबाट तयार हुने भए पनि यसको स्वादसँग स्थानीय संस्कृति, कृषि उत्पादन र पारिवारिक परम्पराको सम्बन्ध जोडिएको हुन्छ। एक कप तातो चियासँग तात्तातो सैयाँको स्वाद लिनु सुदूरपश्चिमको घरेलु खाद्य परम्परालाई अनुभव गर्ने एउटा सरल तर रमाइलो तरिका हो।
-    </p>
-    <p>
-      परम्परागत खाना एउटा recipe मात्र होइन—यसले स्थानीय बाली, ज्ञान, सम्झना र संस्कृतिलाई पनि पुस्तौँसम्म बोकेर लैजान्छ।
-    </p>
-
-  </div>
-
-</section>
-
-<section id="academic">
-  <h2>Academic Work</h2>
-  <div class="card">
-    <h3>B.Sc. Agriculture</h3>
-    <p>
-      Agriculture and Forestry University (AFU), Nepal
-    </p>
-    <br>
-    <p>
-      This section will contain selected academic projects,
-      articles, field experiences and agricultural work.
-    </p>
-  </div>
-</section>
-
-<section id="contact">
-  <h2>Contact</h2>
-  <div class="card">
-    <p>
-      For agriculture-related discussions, collaboration and
-      communication, you can connect with me through my social platforms.
-    </p>
-  </div>
-</section>
-
-<footer>
-  <p>© 2026 Pradip Babu Khadka</p>
-  <p>Agriculture • Knowledge • Sustainability</p>
 </footer>
 
+<script>
+(function(){
+  var btn=document.querySelector('.menu-btn');
+  var nav=document.getElementById('site-nav');
+  var posts=[].slice.call(document.querySelectorAll('.post'));
+
+  function setMenu(open){
+    btn.setAttribute('aria-expanded',String(open));
+    nav.classList.toggle('is-open',open);
+  }
+  btn.addEventListener('click',function(){
+    setMenu(btn.getAttribute('aria-expanded')!=='true');
+  });
+  nav.addEventListener('click',function(e){
+    if(e.target.closest('a')) setMenu(false);
+  });
+  document.addEventListener('keydown',function(e){
+    if(e.key==='Escape'){ setMenu(false); }
+  });
+
+  /* Show one article at a time, driven by the URL hash (#article, #saiya). */
+  function route(moveFocus){
+    var id=decodeURIComponent(location.hash.slice(1));
+    var open=null;
+    posts.forEach(function(p){
+      var isOpen=p.id===id;
+      p.hidden=!isOpen;
+      if(isOpen) open=p;
+    });
+    var target=id?document.getElementById(id):null;
+    if(target){
+      target.scrollIntoView();
+      if(open&&moveFocus){
+        var h=open.querySelector('h2');
+        h.setAttribute('tabindex','-1');
+        h.focus({preventScroll:true});
+      }
+    }
+  }
+  window.addEventListener('hashchange',function(){route(true)});
+  route(false);
+})();
+</script>
 </body>
 </html>
+
