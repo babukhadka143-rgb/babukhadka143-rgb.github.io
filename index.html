@@ -42,22 +42,24 @@ header p{
 }
 
 nav{
-  background:rgba(255,255,255,.97);
-  padding:16px 12px;
+  background:rgba(255,255,255,.96);
+  padding:14px 12px;
   text-align:center;
   position:sticky;
   top:0;
   z-index:100;
-  border-bottom:1px solid #e1e8e2;
-  box-shadow:0 2px 12px #0000000d;
+  border-bottom:1px solid #e2ebe4;
+  box-shadow:0 4px 18px #0000000d;
+  backdrop-filter:blur(10px);
 }
 
 nav a{
-  color:#1f5c3a;
+  color:#174c31;
   text-decoration:none;
-  margin:0 12px;
+  margin:0 14px;
   font-weight:bold;
   font-size:15px;
+  transition:.2s;
 }
 
 nav a:hover{
@@ -78,15 +80,16 @@ h2{
 }
 
 .hero{
-  min-height:560px;
+  min-height:500px;
   display:flex;
   align-items:center;
   justify-content:center;
   text-align:center;
-  padding:90px 20px;
+  padding:80px 20px;
   background:
-    radial-gradient(circle at top left,#dff2e3 0%,transparent 45%),
-    linear-gradient(135deg,#f4faf5 0%,#e5f2e8 100%);
+    radial-gradient(circle at 10% 20%,#d7efdd 0%,transparent 35%),
+    radial-gradient(circle at 90% 80%,#dcefe2 0%,transparent 35%),
+    linear-gradient(135deg,#f7fbf8,#e8f4eb);
   position:relative;
   overflow:hidden;
 }
