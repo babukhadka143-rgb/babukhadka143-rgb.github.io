@@ -189,9 +189,40 @@ h2{
   box-shadow:0 8px 30px #0000000c;
   transition:transform .25s ease, box-shadow .25s ease;
 }
-.card:hover{
-  transform:translateY(-4px);
-  box-shadow:0 12px 35px #00000012;
+.featured-article{
+  padding:45px;
+  background:
+    linear-gradient(135deg,#ffffff 0%,#f0f8f2 100%);
+  border-left:6px solid #2f7d4a;
+  position:relative;
+  overflow:hidden;
+}
+
+.featured-article::after{
+  content:"🌾";
+  position:absolute;
+  right:25px;
+  top:20px;
+  font-size:80px;
+  opacity:.08;
+}
+
+.article-label{
+  color:#2f7d4a;
+  font-size:13px;
+  font-weight:bold;
+  letter-spacing:1.5px;
+  margin-bottom:12px;
+}
+
+.featured-article h3{
+  font-size:32px;
+  max-width:700px;
+}
+
+.featured-article p{
+  max-width:750px;
+  color:#536158;
 }
 
 .card h3{
