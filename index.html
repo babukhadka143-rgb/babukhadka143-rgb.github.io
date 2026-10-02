@@ -129,7 +129,11 @@ ul,ol{margin:0}
   font-family:var(--display);font-weight:800;font-size:1.15rem;letter-spacing:-.02em;
   color:var(--text);text-decoration:none;
 }
-.brand::before{content:"";width:11px;height:11px;border-radius:50%;background:var(--ember)}
+.brand-photo{
+  flex:none;width:42px;height:42px;border-radius:50%;
+  border:2px solid var(--ember);
+  background:var(--ember) url("IMG_9766.jpeg") center/cover no-repeat;
+}
 .nav-list{display:flex;gap:4px;list-style:none;padding:0;margin:0;flex-wrap:wrap}
 .nav-list a{
   display:block;padding:9px 14px;border-radius:999px;
@@ -384,7 +388,7 @@ ul,ol{margin:0}
 
 <header class="site-header">
   <div class="wrap bar">
-    <a class="brand" href="#home">Pradip Babu Khadka</a>
+    <a class="brand" href="#home"><span class="brand-photo" aria-hidden="true"></span>Pradip Babu Khadka</a>
     <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
     <nav id="site-nav" aria-label="Main navigation">
       <ul class="nav-list">
@@ -926,4 +930,5 @@ ul,ol{margin:0}
 })();
 </script>
 </body>
+</html>
 </html>
