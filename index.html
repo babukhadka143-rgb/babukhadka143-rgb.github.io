@@ -103,8 +103,30 @@ h2{
 }
 
 .hero-content{
-  max-width:850px;
+  max-width:900px;
   margin:auto;
+  position:relative;
+  z-index:2;
+}
+
+.hero::before{
+  content:"🌿";
+  position:absolute;
+  left:6%;
+  top:18%;
+  font-size:110px;
+  opacity:.08;
+  transform:rotate(-18deg);
+}
+
+.hero::after{
+  content:"🌱";
+  position:absolute;
+  right:7%;
+  bottom:15%;
+  font-size:100px;
+  opacity:.08;
+  transform:rotate(15deg);
 }
 .hero-tag{
   font-size:14px;
