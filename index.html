@@ -335,37 +335,40 @@ ul,ol{margin:0}
 
 /* ---------- Ideas carousel ---------- */
 .ideas{background:var(--night-2);border-block:1px solid var(--line)}
+.section.ideas{padding-block:clamp(36px,5vw,56px)}
+.ideas .wrap{width:min(100% - 40px,860px)}
+.ideas .section-title{font-size:clamp(1.6rem,3.6vw,2.2rem)}
+.ideas .section-intro{margin-top:8px;font-size:1rem}
 .ideas-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap}
 .ideas-controls{display:flex;gap:10px}
 .round-btn{
-  width:52px;height:52px;border-radius:50%;display:grid;place-items:center;
+  width:42px;height:42px;border-radius:50%;display:grid;place-items:center;
   background:transparent;color:var(--text);border:1px solid rgba(238,243,234,.35);cursor:pointer;
   transition:background-color .2s,border-color .2s,color .2s;
 }
 .round-btn:hover{background:var(--ember);border-color:var(--ember);color:#1a1204}
-.round-btn svg{width:22px;height:22px}
+.round-btn svg{width:20px;height:20px}
 .carousel{
-  display:flex;gap:22px;margin-top:48px;padding:8px 2px 28px;
+  display:flex;gap:16px;margin-top:24px;padding:4px 2px 14px;
   overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:thin;
   scrollbar-color:var(--night-3) transparent;
 }
 .quote{
-  position:relative;flex:0 0 min(86%,520px);scroll-snap-align:start;
+  position:relative;flex:0 0 min(80%,300px);scroll-snap-align:start;
   background:linear-gradient(160deg,var(--night-3),var(--night));
   border:1px solid var(--line);border-radius:var(--r-card);
-  padding:56px 32px 32px;margin:0;display:flex;flex-direction:column;gap:18px;
+  padding:40px 20px 20px;margin:0;display:flex;flex-direction:column;gap:10px;
 }
-.quote:nth-child(even){margin-top:36px}
 .quote::before{
-  content:"\201C";position:absolute;top:6px;left:24px;
-  font-family:var(--display);font-size:7rem;line-height:1;font-weight:800;color:var(--ember);opacity:.9;
+  content:"\201C";position:absolute;top:2px;left:18px;
+  font-family:var(--display);font-size:4.2rem;line-height:1;font-weight:800;color:var(--ember);opacity:.9;
 }
 .quote blockquote{margin:0}
 .quote blockquote p{
-  font-family:var(--display-ne);font-weight:700;font-size:clamp(1.3rem,2.6vw,1.65rem);line-height:1.55;color:var(--text);
+  font-family:var(--display-ne);font-weight:700;font-size:1.08rem;line-height:1.6;color:var(--text);
 }
-.quote .gloss{color:var(--muted);font-size:1rem}
-.quote figcaption{margin-top:auto;padding-top:8px;font-size:.95rem}
+.quote .gloss{color:var(--muted);font-size:.92rem;line-height:1.55}
+.quote figcaption{margin-top:auto;padding-top:4px;font-size:.9rem}
 .quote figcaption a{font-weight:700;color:var(--ember);text-underline-offset:4px}
 
 /* ---------- Academic ---------- */
