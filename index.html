@@ -8,7 +8,7 @@
 <title>Pradip Babu Khadka | Agriculture Blog</title>
 <meta name="description" content="Agriculture blog by Pradip Babu Khadka, an AFU Nepal student, on agro-biodiversity, sustainable farming, climate resilience and traditional food.">
 <meta name="author" content="Pradip Babu Khadka">
-<meta name="theme-color" content="#1b4d33">
+<meta name="theme-color" content="#163425">
 <meta name="robots" content="index, follow">
 
 <!-- Open Graph / social sharing.
@@ -21,13 +21,13 @@
 <meta property="og:description" content="Agro-biodiversity, sustainable farming, climate resilience and traditional food, written from Nepal.">
 <meta property="og:locale" content="en_US">
 <meta property="og:locale:alternate" content="ne_NP">
-<meta name="twitter:card" content="summary">
+<meta name="twitter:card" content="summary_large_image">
 
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8C%BE%3C/text%3E%3C/svg%3E">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Hind:wght@400;500;600;700&family=Noto+Serif+Devanagari:wght@600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Hind:wght@400;500;600;700&family=Noto+Serif+Devanagari:wght@600;700&display=swap">
 
 <script type="application/ld+json">
 {
@@ -55,24 +55,31 @@
 <style>
 /* ---------- Tokens ---------- */
 :root{
-  --bg:#f4f7f0;
-  --sage:#e3ecdb;
-  --surface:#ffffff;
+  --night:#163425;
+  --night-2:#1e4332;
+  --night-3:#285641;
+  --line:rgba(238,243,234,.14);
+  --text:#eef3ea;
+  --muted:#a7b7ac;
+  --ember:#f2a93b;
+  --ember-hot:#ffc15e;
+  --silt:#c9a77a;
+
+  --paper:#f1f5ec;
   --ink:#162319;
-  --muted:#4a5a4f;
-  --line:#d6dfd0;
+  --ink-muted:#4a5a4f;
+  --paper-line:#d6dfd0;
   --green:#1b4d33;
   --green-dark:#12361f;
-  --leaf:#2e7a4c;
-  --marigold:#e8a317;
-  --soil:#7a5a3a;
+  --leaf-dark:#1f6b41;
 
-  --serif:"Fraunces","Noto Serif Devanagari",Georgia,"Times New Roman",serif;
+  --display:"Bricolage Grotesque","Noto Sans Devanagari",system-ui,sans-serif;
+  --display-ne:"Noto Serif Devanagari","Bricolage Grotesque",Georgia,serif;
   --sans:"Hind","Noto Sans Devanagari",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
 
-  --radius-lg:18px;
-  --radius-sm:8px;
-  --wrap:1120px;
+  --r-card:22px;
+  --r-sm:10px;
+  --wrap:1180px;
 }
 
 /* ---------- Base ---------- */
@@ -83,196 +90,291 @@ body{
   margin:0;
   font-family:var(--sans);
   font-size:1.0625rem;
-  line-height:1.75;
-  color:var(--ink);
-  background:var(--bg);
+  line-height:1.8;
+  color:var(--text);
+  background:var(--night);
 }
 img{max-width:100%;height:auto;display:block}
-h1,h2,h3,h4{font-family:var(--serif);color:var(--green-dark);line-height:1.25;margin:0}
+h1,h2,h3,h4{font-family:var(--display);line-height:1.2;margin:0;color:inherit}
+:lang(ne) :is(h2,h3){font-family:var(--display-ne)}
+h2:lang(ne),h3:lang(ne){font-family:var(--display-ne)}
 p{margin:0}
-a{color:var(--leaf)}
+a{color:var(--ember)}
 ul,ol{margin:0}
 
 .wrap{width:min(100% - 40px,var(--wrap));margin-inline:auto}
 
-:focus-visible{outline:3px solid var(--green-dark);outline-offset:3px;border-radius:4px}
-.contact :focus-visible,.site-footer :focus-visible{outline-color:#fff}
+:focus-visible{outline:3px solid var(--ember);outline-offset:3px;border-radius:6px}
+.post :focus-visible{outline-color:var(--green)}
+.contact :focus-visible{outline-color:#1a1204}
 
 .skip{
   position:absolute;left:12px;top:-60px;z-index:200;
-  background:var(--green-dark);color:#fff;padding:10px 16px;border-radius:var(--radius-sm);
-  text-decoration:none;font-weight:600;
+  background:var(--ember);color:#1a1204;padding:10px 16px;border-radius:var(--r-sm);
+  text-decoration:none;font-weight:700;
 }
 .skip:focus{top:12px}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 
-/* ---------- Header / navigation ---------- */
+/* ---------- Header ---------- */
 .site-header{
   position:sticky;top:0;z-index:100;
-  background:rgba(244,247,240,.94);
-  -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
+  background:rgba(22,52,37,.8);
+  -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
   border-bottom:1px solid var(--line);
 }
-.bar{display:flex;align-items:center;justify-content:space-between;min-height:64px;gap:16px}
+.bar{display:flex;align-items:center;justify-content:space-between;min-height:68px;gap:16px}
 .brand{
-  font-family:var(--serif);font-weight:700;font-size:1.15rem;
-  color:var(--green-dark);text-decoration:none;letter-spacing:-.01em;
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:var(--display);font-weight:800;font-size:1.15rem;letter-spacing:-.02em;
+  color:var(--text);text-decoration:none;
 }
-.nav-list{display:flex;gap:6px;list-style:none;padding:0;margin:0;flex-wrap:wrap}
+.brand::before{content:"";width:11px;height:11px;border-radius:50%;background:var(--ember)}
+.nav-list{display:flex;gap:4px;list-style:none;padding:0;margin:0;flex-wrap:wrap}
 .nav-list a{
-  display:block;padding:8px 12px;border-radius:var(--radius-sm);
-  color:var(--green-dark);text-decoration:none;font-weight:600;font-size:.95rem;
+  display:block;padding:9px 14px;border-radius:999px;
+  color:var(--text);text-decoration:none;font-weight:600;font-size:.95rem;
+  transition:background-color .2s;
 }
-.nav-list a:hover{background:var(--sage)}
+.nav-list a:hover{background:rgba(238,243,234,.1)}
 
 .menu-btn{
-  display:none;align-items:center;gap:8px;
-  font:inherit;font-weight:600;font-size:.95rem;color:var(--green-dark);
-  background:transparent;border:1px solid var(--green);border-radius:var(--radius-sm);
-  padding:8px 14px;cursor:pointer;
+  display:none;align-items:center;
+  font:inherit;font-weight:700;font-size:.95rem;color:var(--text);
+  background:transparent;border:1px solid rgba(238,243,234,.35);border-radius:999px;
+  padding:8px 18px;cursor:pointer;
 }
 
 @media (max-width:760px){
   .js .menu-btn{display:inline-flex}
   .js #site-nav{
     display:none;position:absolute;left:0;right:0;top:100%;
-    background:var(--bg);border-bottom:1px solid var(--line);
-    padding:8px 20px 16px;
+    background:var(--night-2);border-bottom:1px solid var(--line);
+    padding:8px 20px 18px;
   }
   .js #site-nav.is-open{display:block}
   .js .nav-list{flex-direction:column;gap:2px}
-  .js .nav-list a{padding:12px 10px}
+  .js .nav-list a{padding:13px 12px;border-radius:var(--r-sm)}
   html:not(.js) .bar{flex-direction:column;align-items:flex-start;padding:10px 0}
 }
 
-/* ---------- Buttons & links ---------- */
+/* ---------- Buttons ---------- */
 .btn{
-  display:inline-block;padding:13px 24px;border-radius:var(--radius-sm);
-  background:var(--green);color:#fff;text-decoration:none;font-weight:700;
-  border:2px solid var(--green);transition:background-color .2s;
+  display:inline-flex;align-items:center;gap:12px;
+  padding:15px 28px;border-radius:999px;
+  font-weight:700;font-size:1rem;text-decoration:none;
+  border:2px solid transparent;
+  transition:background-color .2s,transform .2s,box-shadow .2s,border-color .2s;
 }
-.btn:hover{background:var(--green-dark);border-color:var(--green-dark)}
-.btn-ghost{background:transparent;color:var(--green-dark)}
-.btn-ghost:hover{background:var(--sage);border-color:var(--green)}
-.btn-light{background:#fff;color:var(--green-dark);border-color:#fff}
-.btn-light:hover{background:var(--sage);border-color:var(--sage)}
+.btn svg{width:22px;height:22px;flex:none;transition:transform .25s}
+.btn:hover svg{transform:translateX(5px)}
+.btn-primary{
+  position:relative;background:var(--ember);color:#1a1204;
+  font-size:1.15rem;font-weight:800;padding:19px 32px;
+  box-shadow:0 12px 32px -12px rgba(242,169,59,.75);
+}
+.btn-primary:hover{background:var(--ember-hot);transform:translateY(-3px);box-shadow:0 20px 40px -14px rgba(242,169,59,.9)}
+.btn-primary:active{transform:translateY(0) scale(.98)}
+.btn-ghost{color:var(--text);border-color:rgba(238,243,234,.35)}
+.btn-ghost:hover{background:rgba(238,243,234,.1);border-color:var(--text)}
+.btn-dark{background:#1a1204;color:var(--ember)}
+.btn-dark:hover{background:#2b1f08;transform:translateY(-3px)}
 
-.link{font-weight:700;color:var(--green);text-underline-offset:4px}
+@media (prefers-reduced-motion:no-preference){
+  .btn-primary::after{
+    content:"";position:absolute;inset:-2px;border-radius:inherit;
+    border:2px solid var(--ember);opacity:0;pointer-events:none;
+    animation:ring 2.4s ease-out 1.6s 3;
+  }
+  @keyframes ring{0%{opacity:.85;transform:scale(1)}100%{opacity:0;transform:scale(1.2)}}
+}
 
 /* ---------- Hero ---------- */
-.hero{background:var(--sage);padding-block:clamp(40px,7vw,88px) 0}
-.hero-grid{display:grid;gap:40px;align-items:center}
+.hero{position:relative;isolation:isolate;overflow:hidden;background:var(--night)}
+.hero-img{
+  display:block;width:100%;height:auto;
+  -webkit-mask-image:linear-gradient(#000 60%,transparent);
+  mask-image:linear-gradient(#000 60%,transparent);
+}
+.hero-shade{display:none}
+.hero-inner{position:relative;margin-top:-9vw;padding-bottom:clamp(64px,12vw,110px)}
+.hero-copy{max-width:41rem}
 .hero h1{
-  font-size:clamp(2.4rem,6.4vw,4.3rem);
-  line-height:1.06;letter-spacing:-.025em;font-weight:700;
+  font-size:clamp(2.9rem,10.5vw,6.4rem);
+  font-weight:800;line-height:.98;letter-spacing:-.04em;
 }
-.hero-lead{margin-top:20px;max-width:34em;font-size:1.15rem;color:var(--muted)}
-.hero-actions{margin-top:28px;display:flex;flex-wrap:wrap;gap:12px}
+.hero-lead{margin-top:24px;max-width:32em;font-size:1.15rem;color:#cdd9d0}
+.hero-actions{margin-top:36px;display:flex;flex-wrap:wrap;align-items:center;gap:14px}
 
-.hero-card{
-  position:relative;background:var(--surface);
-  border:1px solid var(--line);border-radius:var(--radius-lg);overflow:hidden;
-  box-shadow:0 18px 40px -24px rgba(18,54,31,.45);
+@media (prefers-reduced-motion:no-preference){
+  .hero-copy>*{opacity:0;transform:translateY(20px);animation:rise .85s cubic-bezier(.2,.7,.2,1) forwards}
+  .hero-copy>:nth-child(2){animation-delay:.12s}
+  .hero-copy>:nth-child(3){animation-delay:.24s}
+  @keyframes rise{to{opacity:1;transform:none}}
 }
-.hero-card img{width:100%;aspect-ratio:4/3;object-fit:cover}
-.hero-card-body{padding:22px 24px 26px}
-.hero-card h2{font-size:1.4rem}
-.hero-card h2 a{color:inherit;text-decoration:none}
-.hero-card h2 a::after{content:"";position:absolute;inset:0}
-.hero-card h2 a:focus-visible{outline:none}
-.hero-card:focus-within{outline:3px solid var(--green-dark);outline-offset:3px}
-.hero-card p{margin-top:8px;color:var(--muted);font-size:1rem}
-
-.strata{display:block;width:100%;height:56px;margin-top:clamp(36px,6vw,64px)}
 
 @media (min-width:900px){
-  .hero-grid{grid-template-columns:1.1fr .9fr;gap:64px}
+  .hero{min-height:min(90vh,880px);display:flex;align-items:center}
+  .hero-img{
+    position:absolute;inset:0;z-index:-2;width:100%;height:100%;
+    object-fit:cover;object-position:75% 0;
+    -webkit-mask-image:none;mask-image:none;
+  }
+  .hero-shade{
+    display:block;position:absolute;inset:0;z-index:-1;
+    background:
+      linear-gradient(90deg,rgba(22,52,37,.97) 0%,rgba(22,52,37,.86) 36%,rgba(22,52,37,.25) 68%,rgba(22,52,37,.1) 100%),
+      linear-gradient(0deg,var(--night) 0%,rgba(22,52,37,0) 28%);
+  }
+  .hero-inner{margin-top:0;padding-block:clamp(80px,9vw,130px)}
 }
 
 /* ---------- Sections ---------- */
-.section{padding-block:clamp(52px,7vw,92px)}
-.section h2.title{font-size:clamp(1.8rem,3.6vw,2.4rem);letter-spacing:-.015em}
-.section-intro{margin-top:10px;color:var(--muted);max-width:40em}
+.section{padding-block:clamp(72px,10vw,140px)}
+.section-title{
+  font-family:var(--display);font-size:clamp(2.2rem,5.6vw,4rem);
+  font-weight:800;line-height:1.04;letter-spacing:-.03em;
+}
+.section-intro{margin-top:16px;color:var(--muted);max-width:38em;font-size:1.1rem}
 .section,.post{scroll-margin-top:72px}
 
 /* About */
-.about-grid{display:grid;gap:24px;border-top:3px solid var(--marigold);padding-top:32px}
-.about-copy p+p{margin-top:1em}
-.facts{margin:28px 0 0;display:grid;gap:16px}
-.facts dt{font-weight:700;color:var(--green-dark)}
-.facts dd{margin:0;color:var(--muted)}
-@media (min-width:860px){
-  .about-grid{grid-template-columns:1fr 2fr;gap:56px}
+.about-grid{display:grid;gap:36px}
+.about-lead{
+  font-family:var(--display);font-size:clamp(1.5rem,3.3vw,2.3rem);
+  line-height:1.35;font-weight:500;letter-spacing:-.015em;
+}
+.about-copy .about-more{margin-top:1.5em;color:var(--muted);max-width:36em}
+.facts{margin:48px 0 0;display:grid;gap:28px}
+.facts>div{border-top:1px solid var(--line);padding-top:16px}
+.facts dt{font-weight:700;color:var(--silt)}
+.facts dd{margin:6px 0 0;color:var(--text)}
+@media (min-width:900px){
+  .about-grid{grid-template-columns:.8fr 1.6fr;gap:80px}
 }
 @media (min-width:640px){
-  .facts{grid-template-columns:1fr 1fr}
+  .facts{grid-template-columns:1fr 1fr;gap:32px}
 }
 
-/* Article cards */
-.cards{display:grid;gap:28px;margin-top:36px}
-@media (min-width:760px){.cards{grid-template-columns:1fr 1fr}}
-.card{
+/* Articles: asymmetric tiles */
+.bento{display:grid;gap:24px;margin-top:56px}
+@media (min-width:900px){.bento{grid-template-columns:1.35fr 1fr}}
+.tile{
   position:relative;display:flex;flex-direction:column;
-  background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);overflow:hidden;
-  transition:border-color .2s;
+  background:var(--night-2);border:1px solid var(--line);border-radius:var(--r-card);overflow:hidden;
+  transition:border-color .25s,transform .25s;
 }
-.card:hover,.card:focus-within{border-color:var(--leaf)}
-.card img{width:100%;aspect-ratio:16/10;object-fit:cover}
-.card-body{padding:24px 26px 28px;display:flex;flex-direction:column;gap:12px;flex:1}
-.card h3{font-size:1.45rem}
-.card h3 a{color:inherit;text-decoration:none}
-.card h3 a::after{content:"";position:absolute;inset:0}
-.card h3 a:focus-visible{outline:none}
-.card:focus-within{outline:3px solid var(--green-dark);outline-offset:3px}
-.card p{color:var(--muted)}
-.card .link{margin-top:auto;padding-top:6px}
+.tile:hover{border-color:var(--ember);transform:translateY(-4px)}
+.tile:focus-within{outline:3px solid var(--ember);outline-offset:3px}
+.tile-media{overflow:hidden;background:var(--night-3)}
+.tile-media img{width:100%;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.tile:hover .tile-media img{transform:scale(1.04)}
+.tile-side .tile-media img{aspect-ratio:4/3;object-fit:cover}
+.tile-body{padding:30px 32px 34px;display:flex;flex-direction:column;gap:14px;flex:1}
+.tile h3{font-size:clamp(1.6rem,2.8vw,2.1rem);line-height:1.35;color:var(--text)}
+.tile h3 a{color:inherit;text-decoration:none}
+.tile h3 a::after{content:"";position:absolute;inset:0}
+.tile h3 a:focus-visible{outline:none}
+.tile p{color:var(--muted)}
+.tile-link{
+  margin-top:auto;padding-top:10px;display:inline-flex;align-items:center;gap:10px;
+  font-family:var(--sans);font-weight:700;color:var(--ember);
+}
+.tile-link svg{width:20px;height:20px;transition:transform .25s}
+.tile:hover .tile-link svg{transform:translateX(6px)}
 
-/* ---------- Article / post reader ---------- */
-.post{padding-block:clamp(40px,6vw,80px);background:var(--surface);border-block:1px solid var(--line)}
+/* ---------- Article reader (light "paper" surface for long reading) ---------- */
+.post{background:var(--paper);color:var(--ink);padding-block:clamp(56px,8vw,110px)}
 .post[hidden]{display:none}
-.back{display:inline-block;font-weight:700;color:var(--green);text-underline-offset:4px;margin-bottom:24px}
+.post h2,.post h3,.post h4{color:var(--green-dark)}
+.post a{color:var(--leaf-dark)}
+.back{display:inline-block;font-weight:700;color:var(--green);text-underline-offset:4px;margin-bottom:28px}
 .post-head{max-width:46rem;margin-inline:auto}
-.post-head h2{font-size:clamp(1.9rem,4.6vw,3rem);letter-spacing:-.015em}
-.post-sub{margin-top:14px;font-size:1.15rem;color:var(--muted)}
-.post-hero{margin:32px auto 8px;max-width:960px}
-.post-hero img{width:100%;border-radius:var(--radius-lg)}
+.post-head h2{font-size:clamp(2rem,5.4vw,3.4rem);line-height:1.25;letter-spacing:-.01em}
+.post-sub{margin-top:16px;font-size:1.15rem;color:var(--ink-muted)}
+.post-hero{margin:36px auto 8px;max-width:980px}
+.post-hero img{width:100%;border-radius:var(--r-card)}
 .prose{max-width:46rem;margin-inline:auto}
-.prose h3{font-size:clamp(1.35rem,2.6vw,1.7rem);margin-top:2.4em;margin-bottom:.6em}
+.prose h3{font-size:clamp(1.4rem,2.7vw,1.8rem);line-height:1.4;margin-top:2.4em;margin-bottom:.6em}
 .prose h4{font-size:1.1rem;font-family:var(--sans);font-weight:700}
-.prose p{margin-top:1.1em;font-size:1.0625rem;line-height:1.9}
+.prose p{margin-top:1.1em;font-size:1.0625rem;line-height:1.95}
 .prose h3+p{margin-top:0}
 .prose ul,.prose ol{margin-top:1.1em;padding-left:1.4em}
-.prose li{margin-top:.7em;line-height:1.85}
-.prose li::marker{color:var(--leaf);font-weight:700}
+.prose li{margin-top:.7em;line-height:1.9}
+.prose li::marker{color:var(--leaf-dark);font-weight:700}
 .steps{list-style:devanagari}
 .steps h4{margin-bottom:.25em}
 .steps p{margin-top:0}
-.post-foot{max-width:46rem;margin:56px auto 0;padding-top:24px;border-top:1px solid var(--line)}
+.post-foot{max-width:46rem;margin:56px auto 0;padding-top:24px;border-top:1px solid var(--paper-line)}
 
 .refs{padding-left:0;list-style:none}
 .refs li{
-  font-family:var(--sans);font-size:.95rem;line-height:1.7;color:var(--muted);
+  font-family:var(--sans);font-size:.95rem;line-height:1.7;color:var(--ink-muted);
   padding-left:1.6em;text-indent:-1.6em;overflow-wrap:anywhere;
 }
 
-/* Saiya media */
-.video{aspect-ratio:16/9;margin-top:1.4em;border-radius:var(--radius-lg);overflow:hidden;background:#000}
+.video{aspect-ratio:16/9;margin-top:1.4em;border-radius:var(--r-card);overflow:hidden;background:#000}
 .video iframe{width:100%;height:100%;border:0;display:block}
 .gallery{display:grid;gap:18px;margin-top:1.4em}
 @media (min-width:560px){.gallery{grid-template-columns:1fr 1fr}}
-.gallery img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:var(--radius-lg)}
+.gallery img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:var(--r-card)}
+
+/* ---------- Ideas carousel ---------- */
+.ideas{background:var(--night-2);border-block:1px solid var(--line)}
+.ideas-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.ideas-controls{display:flex;gap:10px}
+.round-btn{
+  width:52px;height:52px;border-radius:50%;display:grid;place-items:center;
+  background:transparent;color:var(--text);border:1px solid rgba(238,243,234,.35);cursor:pointer;
+  transition:background-color .2s,border-color .2s,color .2s;
+}
+.round-btn:hover{background:var(--ember);border-color:var(--ember);color:#1a1204}
+.round-btn svg{width:22px;height:22px}
+.carousel{
+  display:flex;gap:22px;margin-top:48px;padding:8px 2px 28px;
+  overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:thin;
+  scrollbar-color:var(--night-3) transparent;
+}
+.quote{
+  position:relative;flex:0 0 min(86%,520px);scroll-snap-align:start;
+  background:linear-gradient(160deg,var(--night-3),var(--night));
+  border:1px solid var(--line);border-radius:var(--r-card);
+  padding:56px 32px 32px;margin:0;display:flex;flex-direction:column;gap:18px;
+}
+.quote:nth-child(even){margin-top:36px}
+.quote::before{
+  content:"\201C";position:absolute;top:6px;left:24px;
+  font-family:var(--display);font-size:7rem;line-height:1;font-weight:800;color:var(--ember);opacity:.9;
+}
+.quote blockquote{margin:0}
+.quote blockquote p{
+  font-family:var(--display-ne);font-weight:700;font-size:clamp(1.3rem,2.6vw,1.65rem);line-height:1.55;color:var(--text);
+}
+.quote .gloss{color:var(--muted);font-size:1rem}
+.quote figcaption{margin-top:auto;padding-top:8px;font-size:.95rem}
+.quote figcaption a{font-weight:700;color:var(--ember);text-underline-offset:4px}
 
 /* ---------- Academic ---------- */
-.academic{border-left:4px solid var(--marigold);padding:6px 0 6px 24px;margin-top:32px;max-width:40em}
-.academic h3{font-size:1.5rem}
-.academic p{color:var(--muted);margin-top:6px}
-.academic p+p{margin-top:14px}
+.academic{border-left:4px solid var(--ember);padding:6px 0 6px 28px;margin-top:48px;max-width:40em}
+.academic h3{font-size:clamp(1.6rem,3vw,2.2rem);font-family:var(--display);font-weight:800;letter-spacing:-.02em}
+.academic p{color:var(--muted);margin-top:8px}
+.academic p+p{margin-top:16px}
 
 /* ---------- Contact & footer ---------- */
-.contact{background:var(--green);color:#fff}
-.contact h2{color:#fff}
-.contact p{max-width:38em;margin-top:14px;color:#e4efe6;font-size:1.1rem}
-.contact .btn{margin-top:26px}
-.site-footer{background:var(--green-dark);color:#cfe0d4;padding:30px 0;font-size:.95rem}
+.contact{background:var(--ember);color:#1a1204}
+.contact .section-title{font-size:clamp(2.8rem,9vw,6.4rem);color:#1a1204}
+.contact p{max-width:34em;margin-top:24px;font-size:1.2rem;color:#2b1f08}
+.contact .btn{margin-top:32px}
+.contact-grid{display:grid;gap:48px}
+@media (min-width:900px){.contact-grid{grid-template-columns:1.2fr 1fr;gap:80px;align-items:start}}
+.contact-list{margin:0;display:grid;gap:0}
+.contact-list>div{display:grid;grid-template-columns:7.5rem 1fr;gap:12px;padding:16px 0;border-top:1px solid rgba(26,18,4,.28)}
+.contact-list>div:last-child{border-bottom:1px solid rgba(26,18,4,.28)}
+.contact-list dt{font-weight:700;color:#2b1f08}
+.contact-list dd{margin:0;font-weight:600;overflow-wrap:anywhere}
+.contact-list a{color:#1a1204;text-underline-offset:4px;text-decoration-thickness:2px}
+.contact-list a:hover{text-decoration-thickness:4px}
+.site-footer{background:var(--night);color:var(--muted);padding:34px 0;font-size:.95rem;border-top:1px solid var(--line)}
 .site-footer p+p{margin-top:2px}
 </style>
 </head>
@@ -300,47 +402,38 @@ ul,ol{margin:0}
 
   <!-- HERO -->
   <section class="hero" id="home" aria-labelledby="hero-title">
-    <div class="wrap hero-grid">
-      <div>
-        <h1 id="hero-title">Exploring Agriculture. Growing Better Ideas.</h1>
+    <img class="hero-img" src="IMG_0134.jpeg" alt="Flood-affected agricultural land in Nepal" fetchpriority="high" decoding="async">
+    <div class="hero-shade" aria-hidden="true"></div>
+
+    <div class="wrap hero-inner">
+      <div class="hero-copy">
+        <h1 id="hero-title">After the flood, what grows next?</h1>
         <p class="hero-lead">
-          A personal agriculture blog on agro-biodiversity, sustainable farming,
-          climate resilience, traditional food, and practical ideas for a better
-          agricultural future.
+          Notes on agro-biodiversity, climate resilience and traditional food,
+          from an agriculture student in Nepal.
         </p>
         <div class="hero-actions">
-          <a class="btn" href="#article">Read the latest article</a>
+          <a class="btn btn-primary" href="#article">
+            Read the flood article
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
           <a class="btn btn-ghost" href="#about">About me</a>
         </div>
       </div>
-
-      <article class="hero-card">
-        <img src="IMG_0134.jpeg" alt="Flood-affected agricultural land in Nepal" fetchpriority="high" decoding="async">
-        <div class="hero-card-body">
-          <h2 lang="ne"><a href="#article">बाढीपछि, किसानले के रोप्ने?</a></h2>
-          <p lang="ne">नेपालमा कृषि-जैविक विविधतामार्फत विपद्पछिको कृषि पुनरुत्थानबारे पुनर्विचार।</p>
-        </div>
-      </article>
     </div>
-
-    <svg class="strata" viewBox="0 0 1200 56" preserveAspectRatio="none" aria-hidden="true" focusable="false">
-      <path fill="#c7d6b6" d="M0 18C150 0 300 38 450 20S750 0 900 22s200 14 300-8V56H0Z"/>
-      <path fill="#b39770" d="M0 32C200 16 350 48 560 32s340-14 640 6V56H0Z"/>
-      <path fill="#f4f7f0" d="M0 46C250 38 450 56 700 46s300-6 500 4V56H0Z"/>
-    </svg>
   </section>
 
   <!-- ABOUT -->
   <section class="section" id="about" aria-labelledby="about-title">
     <div class="wrap about-grid">
-      <h2 class="title" id="about-title">About Me</h2>
+      <h2 class="section-title" id="about-title">About Me</h2>
       <div class="about-copy">
-        <p>
+        <p class="about-lead">
           I am a B.Sc. Agriculture student at Agriculture and Forestry University,
           Nepal, with an interest in agro-biodiversity, sustainable agriculture,
           climate resilience, and agricultural development.
         </p>
-        <p>
+        <p class="about-more">
           Through this blog, I aim to share ideas and perspectives on
           agriculture, agro-biodiversity, sustainability, climate
           resilience and agricultural development.
@@ -362,36 +455,44 @@ ul,ol{margin:0}
   <!-- ARTICLES -->
   <section class="section" id="articles" aria-labelledby="articles-title" style="padding-top:0">
     <div class="wrap">
-      <h2 class="title" id="articles-title">Articles</h2>
+      <h2 class="section-title" id="articles-title">Articles</h2>
       <p class="section-intro">Long reads and food stories, written in Nepali.</p>
 
-      <div class="cards">
-        <article class="card">
-          <img src="IMG_0134.jpeg" alt="Flood-affected agricultural land in Nepal" loading="lazy" decoding="async">
-          <div class="card-body" lang="ne">
+      <div class="bento">
+        <article class="tile tile-feature">
+          <div class="tile-media">
+            <img src="IMG_0134.jpeg" alt="Flood-affected agricultural land in Nepal" loading="lazy" decoding="async">
+          </div>
+          <div class="tile-body" lang="ne">
             <h3><a href="#article">बाढीपछि, किसानले के रोप्ने?</a></h3>
             <p>
               बाढीपछि कृषि पुनरुत्थान गर्दा बाली तथा प्रजाति विविधता, किसानको लाभ, बीउ प्रणाली, बजार र जलवायु उत्थानशीलतालाई कसरी जोड्न सकिन्छ भन्नेबारे यस लेखले चर्चा गर्छ।
             </p>
-            <span class="link" lang="en">Read the article</span>
+            <span class="tile-link" lang="en">Read the article
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </span>
           </div>
         </article>
 
-        <article class="card">
-          <img src="IMG_0026.jpeg" alt="सैयाँ (Saiya) - सुदूरपश्चिमको परम्परागत खाजा" loading="lazy" decoding="async">
-          <div class="card-body" lang="ne">
+        <article class="tile tile-side">
+          <div class="tile-media">
+            <img src="IMG_0026.jpeg" alt="सैयाँ (Saiya) - सुदूरपश्चिमको परम्परागत खाजा" loading="lazy" decoding="async">
+          </div>
+          <div class="tile-body" lang="ne">
             <h3><a href="#saiya">सैयाँ (Saiya): सुदूरपश्चिमको परम्परागत खाजा</a></h3>
             <p>
               कोदो वा चामलको पिठोबाट घ्यूमा भुटेर बनाइने सुदूरपश्चिम नेपालको परम्परागत खाजा, यसको विधि र स्थानीय कृषि-संस्कृतिसँगको सम्बन्ध।
             </p>
-            <span class="link" lang="en">Read the article</span>
+            <span class="tile-link" lang="en">Read the article
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </span>
           </div>
         </article>
       </div>
     </div>
   </section>
 
-  <!-- ARTICLE 1: FLOOD -->
+<!-- ARTICLE 1: FLOOD -->
   <article class="post" id="article" lang="ne" hidden>
     <div class="wrap">
       <a class="back" href="#articles" lang="en">&larr; Back to articles</a>
@@ -661,10 +762,53 @@ ul,ol{margin:0}
     </div>
   </article>
 
+    <!-- IDEAS FROM THE ARTICLE (carousel) -->
+  <section class="section ideas" id="ideas" aria-labelledby="ideas-title">
+    <div class="wrap">
+      <div class="ideas-head">
+        <div>
+          <h2 class="section-title" id="ideas-title">Ideas from the article</h2>
+          <p class="section-intro">Four lines from the flood article. Swipe or use the arrows.</p>
+        </div>
+        <div class="ideas-controls">
+          <button class="round-btn" type="button" data-dir="-1" aria-label="Previous idea">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>
+          </button>
+          <button class="round-btn" type="button" data-dir="1" aria-label="Next idea">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="carousel" id="ideas-track" role="region" aria-roledescription="carousel" aria-label="Key ideas from the flood article" tabindex="0">
+        <figure class="quote">
+          <blockquote lang="ne"><p>पुनर्स्थापनाको कार्य बाली लगाउने निर्णय हुनुभन्दा पहिले माटो व्यवस्थापनसम्बन्धी निर्णय हो।</p></blockquote>
+          <p class="gloss">Recovery is a soil decision before it is a planting decision.</p>
+          <figcaption><a href="#article">From the flood article</a></figcaption>
+        </figure>
+        <figure class="quote">
+          <blockquote lang="ne"><p>विपद्पछिको विविधीकरणको उद्देश्य 'अधिकतम विविधता' नभई 'उपयुक्त विविधता' हुनुपर्छ।</p></blockquote>
+          <p class="gloss">After a disaster, aim for suitable diversity, not maximum diversity.</p>
+          <figcaption><a href="#article">From the flood article</a></figcaption>
+        </figure>
+        <figure class="quote">
+          <blockquote lang="ne"><p>बजारको विविधीकरणबिना गरिने उत्पादनको विविधीकरणले जोखिमलाई कम गर्नुको सट्टा खेतबाट बजारसम्म मात्र सार्न सक्छ।</p></blockquote>
+          <p class="gloss">Diversifying production without diversifying markets can move the risk from the farm to the market instead of reducing it.</p>
+          <figcaption><a href="#article">From the flood article</a></figcaption>
+        </figure>
+        <figure class="quote">
+          <blockquote lang="ne"><p>प्रविधि एक्लैले मात्र यात्रा गर्दैन।</p></blockquote>
+          <p class="gloss">Technology does not travel on its own.</p>
+          <figcaption><a href="#article">From the flood article</a></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
   <!-- ACADEMIC WORK -->
   <section class="section" id="academic" aria-labelledby="academic-title">
     <div class="wrap">
-      <h2 class="title" id="academic-title">Academic Work</h2>
+      <h2 class="section-title" id="academic-title">Academic Work</h2>
       <div class="academic">
         <h3>B.Sc. Agriculture</h3>
         <p>Agriculture and Forestry University (AFU), Nepal</p>
@@ -678,14 +822,45 @@ ul,ol{margin:0}
 
   <!-- CONTACT -->
   <section class="section contact" id="contact" aria-labelledby="contact-title">
-    <div class="wrap">
-      <h2 class="title" id="contact-title">Contact</h2>
-      <p>
-        For agriculture-related discussions, collaboration and
-        communication, you can connect with me through my social platforms.
-      </p>
-      <!-- Add your real link here, for example:
-           <a class="btn btn-light" href="mailto:you@example.com">Email me</a> -->
+    <div class="wrap contact-grid">
+      <div>
+        <h2 class="section-title" id="contact-title">Get in Touch</h2>
+        <p>Have a question, idea, collaboration opportunity, or feedback?</p>
+        <p>
+          I&rsquo;d be happy to connect with students, researchers, farmers, organizations,
+          and anyone interested in agriculture, sustainability, biodiversity, and rural development.
+        </p>
+        <a class="btn btn-dark" href="mailto:babukhadka143@gmail.com?subject=Message%20from%20your%20website">
+          <span aria-hidden="true">&#128233;</span> Send Me a Message
+        </a>
+      </div>
+
+      <dl class="contact-list">
+        <div>
+          <dt>Email</dt>
+          <dd><a href="mailto:babukhadka143@gmail.com">babukhadka143@gmail.com</a></dd>
+        </div>
+        <div>
+          <dt>Location</dt>
+          <dd>Chitwan, Nepal</dd>
+        </div>
+        <div>
+          <dt>Facebook</dt>
+          <dd><a href="https://www.facebook.com/share/19hjskPTF1/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">Facebook profile<span class="sr-only"> (opens in a new tab)</span></a></dd>
+        </div>
+        <div>
+          <dt>Instagram</dt>
+          <dd><a href="https://www.instagram.com/pradipkhadka36?stkn=MWQwYzM3dmxucWM5dg%3D%3D&amp;utm_source=qr" target="_blank" rel="noopener noreferrer">@pradipkhadka36<span class="sr-only"> (opens in a new tab)</span></a></dd>
+        </div>
+        <div>
+          <dt>LinkedIn</dt>
+          <dd><a href="https://www.linkedin.com/in/pradipbabu-khadka-9b0a6122a" target="_blank" rel="noopener noreferrer">Pradip Babu Khadka<span class="sr-only"> (opens in a new tab)</span></a></dd>
+        </div>
+        <div>
+          <dt>YouTube</dt>
+          <dd><a href="https://youtube.com/@pradipbabukhadka1305?si=Nv3p4zO4v8OjAbPK" target="_blank" rel="noopener noreferrer">@pradipbabukhadka1305<span class="sr-only"> (opens in a new tab)</span></a></dd>
+        </div>
+      </dl>
     </div>
   </section>
 
@@ -739,8 +914,16 @@ ul,ol{margin:0}
   }
   window.addEventListener('hashchange',function(){route(true)});
   route(false);
+
+  /* Ideas carousel arrows */
+  var track=document.getElementById('ideas-track');
+  [].forEach.call(document.querySelectorAll('.round-btn'),function(b){
+    b.addEventListener('click',function(){
+      var dir=Number(b.getAttribute('data-dir'));
+      track.scrollBy({left:dir*Math.max(track.clientWidth*0.8,280),behavior:'smooth'});
+    });
+  });
 })();
 </script>
 </body>
 </html>
-
