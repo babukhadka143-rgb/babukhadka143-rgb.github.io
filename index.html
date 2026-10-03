@@ -17,6 +17,7 @@
 <meta property="og:image" content="https://babukhadka143-rgb.github.io/IMG_0146.jpeg">
 <meta name="twitter:image" content="https://babukhadka143-rgb.github.io/IMG_0146.jpeg">
 <meta property="og:type" content="website">
+<meta property="og:site_name" content="Pradip Babu Khadka | Agriculture Blog">
 <meta property="og:title" content="Pradip Babu Khadka | Agriculture Blog">
 <meta property="og:description" content="Agro-biodiversity, sustainable farming, climate resilience and traditional food, written from Nepal.">
 <meta property="og:locale" content="en_US">
@@ -333,6 +334,22 @@ ul,ol{margin:0}
 @media (min-width:560px){.gallery{grid-template-columns:1fr 1fr}}
 .gallery img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:var(--r-card)}
 
+/* ---------- Share buttons ---------- */
+.share{position:relative;z-index:2;display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:6px}
+.share-label{font-size:.9rem;font-weight:700;color:var(--muted);margin-right:2px}
+.share-btn{
+  font:inherit;font-size:.9rem;font-weight:700;line-height:1.2;
+  color:var(--text);background:transparent;text-decoration:none;cursor:pointer;
+  border:1px solid rgba(238,243,234,.3);border-radius:999px;padding:7px 14px;
+  transition:background-color .2s,border-color .2s,color .2s;
+}
+.share-btn:hover{background:var(--ember);border-color:var(--ember);color:#1a1204}
+html:not(.js) .share-copy{display:none}
+.post .share-label{color:var(--ink-muted)}
+.post .share-btn{color:var(--green-dark);border-color:var(--paper-line)}
+.post .share-btn:hover{background:var(--green);border-color:var(--green);color:#fff}
+.post-foot .share{margin:0 0 22px}
+
 /* ---------- Ideas carousel ---------- */
 .ideas{background:var(--night-2);border-block:1px solid var(--line)}
 .section.ideas{padding-block:clamp(36px,5vw,56px)}
@@ -474,7 +491,9 @@ ul,ol{margin:0}
 
   <!-- LATEST ARTICLES: a feed that always shows the newest article first.
        To add an article: copy one <article class="tile"> block below, change the
-       date, title, summary, image and link, then add the full article page further down. -->
+       date, title, summary, image and link, then add the full article page further down.
+       For good Facebook previews also copy bhote-koshi-flood.html (the small share page)
+       and point the new card's Share buttons at it. -->
   <section class="section" id="articles" aria-labelledby="articles-title" style="padding-top:0">
     <div class="wrap">
       <h2 class="section-title" id="articles-title">Latest Articles</h2>
@@ -487,13 +506,21 @@ ul,ol{margin:0}
           </div>
           <div class="tile-body" lang="ne">
             <time class="tile-date" lang="en" datetime="2026-10-01">2026-10-01</time>
-            <h3><a href="#article">बाढीपछि, किसानले के रोप्ने?</a></h3>
+            <h3><a href="#bhote-koshi-flood">बाढीपछि, किसानले के रोप्ने?</a></h3>
             <p>
               बाढीपछि कृषि पुनरुत्थान गर्दा बाली तथा प्रजाति विविधता, किसानको लाभ, बीउ प्रणाली, बजार र जलवायु उत्थानशीलतालाई कसरी जोड्न सकिन्छ भन्नेबारे यस लेखले चर्चा गर्छ।
             </p>
             <span class="tile-link" lang="en">Read the article
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
             </span>
+          
+            <div class="share" lang="en">
+              <span class="share-label">Share</span>
+              <a class="share-btn" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fbabukhadka143-rgb.github.io%2Fbhote-koshi-flood.html" target="_blank" rel="noopener noreferrer">Facebook<span class="sr-only"> (opens in a new tab)</span></a>
+              <a class="share-btn" href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fbabukhadka143-rgb.github.io%2Fbhote-koshi-flood.html" target="_blank" rel="noopener noreferrer">X<span class="sr-only"> (opens in a new tab)</span></a>
+              <button class="share-btn share-copy" type="button" data-copy="https://babukhadka143-rgb.github.io/bhote-koshi-flood.html">Copy link</button>
+              <span class="sr-only" role="status"></span>
+            </div>
           </div>
         </article>
 
@@ -510,6 +537,14 @@ ul,ol{margin:0}
             <span class="tile-link" lang="en">Read the article
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
             </span>
+          
+            <div class="share" lang="en">
+              <span class="share-label">Share</span>
+              <a class="share-btn" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fbabukhadka143-rgb.github.io%2Fsaiya.html" target="_blank" rel="noopener noreferrer">Facebook<span class="sr-only"> (opens in a new tab)</span></a>
+              <a class="share-btn" href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fbabukhadka143-rgb.github.io%2Fsaiya.html" target="_blank" rel="noopener noreferrer">X<span class="sr-only"> (opens in a new tab)</span></a>
+              <button class="share-btn share-copy" type="button" data-copy="https://babukhadka143-rgb.github.io/saiya.html">Copy link</button>
+              <span class="sr-only" role="status"></span>
+            </div>
           </div>
         </article>
       </div>
@@ -517,7 +552,7 @@ ul,ol{margin:0}
   </section>
 
 <!-- ARTICLE 1: FLOOD -->
-  <article class="post" id="article" lang="ne" hidden>
+  <article class="post" id="bhote-koshi-flood" lang="ne" hidden>
     <div class="wrap">
       <a class="back" href="#articles" lang="en">&larr; Back to articles</a>
 
@@ -667,6 +702,13 @@ ul,ol{margin:0}
       </div>
 
       <div class="post-foot" lang="en">
+        <div class="share" lang="en">
+          <span class="share-label">Share</span>
+          <a class="share-btn" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fbabukhadka143-rgb.github.io%2Fbhote-koshi-flood.html" target="_blank" rel="noopener noreferrer">Facebook<span class="sr-only"> (opens in a new tab)</span></a>
+          <a class="share-btn" href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fbabukhadka143-rgb.github.io%2Fbhote-koshi-flood.html" target="_blank" rel="noopener noreferrer">X<span class="sr-only"> (opens in a new tab)</span></a>
+          <button class="share-btn share-copy" type="button" data-copy="https://babukhadka143-rgb.github.io/bhote-koshi-flood.html">Copy link</button>
+          <span class="sr-only" role="status"></span>
+        </div>
         <a class="back" href="#articles" style="margin-bottom:0">&larr; Back to articles</a>
       </div>
     </div>
@@ -781,6 +823,13 @@ ul,ol{margin:0}
       </div>
 
       <div class="post-foot" lang="en">
+        <div class="share" lang="en">
+          <span class="share-label">Share</span>
+          <a class="share-btn" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fbabukhadka143-rgb.github.io%2Fsaiya.html" target="_blank" rel="noopener noreferrer">Facebook<span class="sr-only"> (opens in a new tab)</span></a>
+          <a class="share-btn" href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fbabukhadka143-rgb.github.io%2Fsaiya.html" target="_blank" rel="noopener noreferrer">X<span class="sr-only"> (opens in a new tab)</span></a>
+          <button class="share-btn share-copy" type="button" data-copy="https://babukhadka143-rgb.github.io/saiya.html">Copy link</button>
+          <span class="sr-only" role="status"></span>
+        </div>
         <a class="back" href="#articles" style="margin-bottom:0">&larr; Back to articles</a>
       </div>
     </div>
@@ -808,22 +857,22 @@ ul,ol{margin:0}
         <figure class="quote">
           <blockquote lang="ne"><p>पुनर्स्थापनाको कार्य बाली लगाउने निर्णय हुनुभन्दा पहिले माटो व्यवस्थापनसम्बन्धी निर्णय हो।</p></blockquote>
           <p class="gloss">Recovery is a soil decision before it is a planting decision.</p>
-          <figcaption><a href="#article">From the flood article</a></figcaption>
+          <figcaption><a href="#bhote-koshi-flood">From the flood article</a></figcaption>
         </figure>
         <figure class="quote">
           <blockquote lang="ne"><p>विपद्पछिको विविधीकरणको उद्देश्य 'अधिकतम विविधता' नभई 'उपयुक्त विविधता' हुनुपर्छ।</p></blockquote>
           <p class="gloss">After a disaster, aim for suitable diversity, not maximum diversity.</p>
-          <figcaption><a href="#article">From the flood article</a></figcaption>
+          <figcaption><a href="#bhote-koshi-flood">From the flood article</a></figcaption>
         </figure>
         <figure class="quote">
           <blockquote lang="ne"><p>बजारको विविधीकरणबिना गरिने उत्पादनको विविधीकरणले जोखिमलाई कम गर्नुको सट्टा खेतबाट बजारसम्म मात्र सार्न सक्छ।</p></blockquote>
           <p class="gloss">Diversifying production without diversifying markets can move the risk from the farm to the market instead of reducing it.</p>
-          <figcaption><a href="#article">From the flood article</a></figcaption>
+          <figcaption><a href="#bhote-koshi-flood">From the flood article</a></figcaption>
         </figure>
         <figure class="quote">
           <blockquote lang="ne"><p>प्रविधि एक्लैले मात्र यात्रा गर्दैन।</p></blockquote>
           <p class="gloss">Technology does not travel on its own.</p>
-          <figcaption><a href="#article">From the flood article</a></figcaption>
+          <figcaption><a href="#bhote-koshi-flood">From the flood article</a></figcaption>
         </figure>
       </div>
     </div>
@@ -917,15 +966,24 @@ ul,ol{margin:0}
     if(e.key==='Escape'){ setMenu(false); }
   });
 
-  /* Show one article at a time, driven by the URL hash (#article, #saiya). */
+  /* Show one article at a time, driven by the URL hash
+     (#bhote-koshi-flood, #saiya). Old links such as #article still work. */
+  var legacy={article:'bhote-koshi-flood'};
+  var baseTitle=document.title;
   function route(moveFocus){
-    var id=decodeURIComponent(location.hash.slice(1));
+    var id='';
+    try{ id=decodeURIComponent(location.hash.slice(1)); }catch(err){ id=location.hash.slice(1); }
+    if(legacy[id]){
+      id=legacy[id];
+      if(history.replaceState){ history.replaceState(null,'','#'+id); }
+    }
     var open=null;
     posts.forEach(function(p){
       var isOpen=p.id===id;
       p.hidden=!isOpen;
       if(isOpen) open=p;
     });
+    document.title=open?(open.querySelector('h2').textContent.trim()+' | Pradip Babu Khadka'):baseTitle;
     var target=id?document.getElementById(id):null;
     if(target){
       target.scrollIntoView();
@@ -956,6 +1014,33 @@ ul,ol{margin:0}
     cards.sort(function(a,b){return dateOf(b).localeCompare(dateOf(a));});
     cards.forEach(function(c){feed.appendChild(c);});
   }
+
+  /* Copy-link buttons */
+  [].forEach.call(document.querySelectorAll('.share-copy'),function(b){
+    b.addEventListener('click',function(){
+      var url=b.getAttribute('data-copy');
+      var label=b.textContent;
+      var status=b.parentNode.querySelector('[role="status"]');
+      function done(){
+        b.textContent='Link copied';
+        if(status){ status.textContent='Link copied'; }
+        setTimeout(function(){ b.textContent=label; if(status){ status.textContent=''; } },2000);
+      }
+      function fallback(){
+        var ta=document.createElement('textarea');
+        ta.value=url; ta.setAttribute('readonly','');
+        ta.style.position='fixed'; ta.style.opacity='0';
+        document.body.appendChild(ta); ta.select();
+        try{ document.execCommand('copy'); done(); }catch(err){ window.prompt('Copy this link:',url); }
+        document.body.removeChild(ta);
+      }
+      if(navigator.clipboard&&navigator.clipboard.writeText){
+        navigator.clipboard.writeText(url).then(done,fallback);
+      }else{
+        fallback();
+      }
+    });
+  });
 
   /* Ideas carousel arrows */
   var track=document.getElementById('ideas-track');
