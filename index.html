@@ -334,6 +334,30 @@ ul,ol{margin:0}
 @media (min-width:560px){.gallery{grid-template-columns:1fr 1fr}}
 .gallery img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:var(--r-card)}
 
+/* ---------- Author byline & author box ---------- */
+.tile-meta{display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 14px}
+.tile-by{font-size:.95rem;font-weight:600;color:var(--muted)}
+.byline{display:flex;align-items:center;gap:14px;margin-top:24px}
+.byline-photo,.author-photo{
+  flex:none;display:block;border-radius:50%;object-fit:cover;object-position:center 20%;
+  background:var(--paper-line);border:2px solid #fff;box-shadow:0 0 0 1px var(--paper-line);
+}
+.byline-photo{width:48px;height:48px}
+.byline-text{margin:0;line-height:1.4;font-size:1rem;color:var(--ink)}
+.byline-text a{color:var(--green-dark);font-weight:700;text-decoration:none}
+.byline-text a:hover{text-decoration:underline}
+.byline-role{display:block;font-size:.9rem;color:var(--ink-muted)}
+.author-box{
+  display:flex;gap:18px;align-items:flex-start;margin-bottom:28px;
+  background:#fff;border:1px solid var(--paper-line);border-radius:var(--r-card);padding:22px 24px;
+}
+.author-photo{width:72px;height:72px}
+.author-box p{margin:0;font-size:1rem;line-height:1.6;color:var(--ink-muted)}
+.author-box p+p{margin-top:6px}
+.author-box .author-name{color:var(--ink);font-size:1.05rem}
+.author-box a{font-weight:700;color:var(--leaf-dark)}
+@media (max-width:480px){.author-box{flex-direction:column}}
+
 /* ---------- Share buttons ---------- */
 .share{position:relative;z-index:2;display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:6px}
 .share-label{font-size:.9rem;font-weight:700;color:var(--muted);margin-right:2px}
@@ -505,7 +529,10 @@ html:not(.js) .share-copy{display:none}
             <img src="IMG_0134.jpeg" alt="Flood-affected agricultural land in Nepal" loading="lazy" decoding="async">
           </div>
           <div class="tile-body" lang="ne">
-            <time class="tile-date" lang="en" datetime="2026-10-01">2026-10-01</time>
+            <div class="tile-meta" lang="en">
+              <time class="tile-date" lang="en" datetime="2026-10-01">2026-10-01</time>
+              <span class="tile-by">By Pradip Babu Khadka</span>
+            </div>
             <h3><a href="#bhote-koshi-flood">बाढीपछि, किसानले के रोप्ने?</a></h3>
             <p>
               बाढीपछि कृषि पुनरुत्थान गर्दा बाली तथा प्रजाति विविधता, किसानको लाभ, बीउ प्रणाली, बजार र जलवायु उत्थानशीलतालाई कसरी जोड्न सकिन्छ भन्नेबारे यस लेखले चर्चा गर्छ।
@@ -529,7 +556,10 @@ html:not(.js) .share-copy{display:none}
             <img src="IMG_0026.jpeg" alt="सैयाँ (Saiya) - सुदूरपश्चिमको परम्परागत खाजा" loading="lazy" decoding="async">
           </div>
           <div class="tile-body" lang="ne">
-            <time class="tile-date" lang="en" datetime="2026-09-15">2026-09-15</time>
+            <div class="tile-meta" lang="en">
+              <time class="tile-date" lang="en" datetime="2026-09-15">2026-09-15</time>
+              <span class="tile-by">By Pradip Babu Khadka</span>
+            </div>
             <h3><a href="#saiya">सैयाँ (Saiya): सुदूरपश्चिमको परम्परागत खाजा</a></h3>
             <p>
               कोदो वा चामलको पिठोबाट घ्यूमा भुटेर बनाइने सुदूरपश्चिम नेपालको परम्परागत खाजा, यसको विधि र स्थानीय कृषि-संस्कृतिसँगको सम्बन्ध।
@@ -559,6 +589,12 @@ html:not(.js) .share-copy{display:none}
       <header class="post-head">
         <h2>बाढीपछि, किसानले के रोप्ने?</h2>
         <p class="post-sub">नेपालमा कृषि-जैविक विविधतामार्फत विपद्पछिको कृषि पुनरुत्थानबारे पुनर्विचार</p>
+
+        <div class="byline" lang="en">
+          <img class="byline-photo" src="IMG_9766.jpeg" alt="" width="48" height="48" onerror="this.hidden=true">
+          <p class="byline-text">By <a rel="author" href="#about">Pradip Babu Khadka</a>
+            <span class="byline-role">B.Sc. Agriculture student, Agriculture and Forestry University, Nepal</span></p>
+        </div>
       </header>
 
       <figure class="post-hero" style="margin-inline:auto">
@@ -702,6 +738,14 @@ html:not(.js) .share-copy{display:none}
       </div>
 
       <div class="post-foot" lang="en">
+        <aside class="author-box" aria-label="About the author">
+          <img class="author-photo" src="IMG_9766.jpeg" alt="" width="72" height="72" loading="lazy" onerror="this.hidden=true">
+          <div>
+            <p class="author-name">Written by <strong>Pradip Babu Khadka</strong></p>
+            <p>B.Sc. Agriculture student at Agriculture and Forestry University (AFU), Nepal, writing about agro-biodiversity, climate resilience and traditional food.</p>
+            <p><a href="#contact">Get in touch</a></p>
+          </div>
+        </aside>
         <div class="share" lang="en">
           <span class="share-label">Share</span>
           <a class="share-btn" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fbabukhadka143-rgb.github.io%2Fbhote-koshi-flood.html" target="_blank" rel="noopener noreferrer">Facebook<span class="sr-only"> (opens in a new tab)</span></a>
@@ -721,6 +765,12 @@ html:not(.js) .share-copy{display:none}
 
       <header class="post-head">
         <h2>सैयाँ (Saiya): सुदूरपश्चिमको परम्परागत खाजा</h2>
+
+        <div class="byline" lang="en">
+          <img class="byline-photo" src="IMG_9766.jpeg" alt="" width="48" height="48" onerror="this.hidden=true">
+          <p class="byline-text">By <a rel="author" href="#about">Pradip Babu Khadka</a>
+            <span class="byline-role">B.Sc. Agriculture student, Agriculture and Forestry University, Nepal</span></p>
+        </div>
       </header>
 
       <figure class="post-hero" style="margin-inline:auto">
@@ -823,6 +873,14 @@ html:not(.js) .share-copy{display:none}
       </div>
 
       <div class="post-foot" lang="en">
+        <aside class="author-box" aria-label="About the author">
+          <img class="author-photo" src="IMG_9766.jpeg" alt="" width="72" height="72" loading="lazy" onerror="this.hidden=true">
+          <div>
+            <p class="author-name">Written by <strong>Pradip Babu Khadka</strong></p>
+            <p>B.Sc. Agriculture student at Agriculture and Forestry University (AFU), Nepal, writing about agro-biodiversity, climate resilience and traditional food.</p>
+            <p><a href="#contact">Get in touch</a></p>
+          </div>
+        </aside>
         <div class="share" lang="en">
           <span class="share-label">Share</span>
           <a class="share-btn" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fbabukhadka143-rgb.github.io%2Fsaiya.html" target="_blank" rel="noopener noreferrer">Facebook<span class="sr-only"> (opens in a new tab)</span></a>
@@ -1053,4 +1111,5 @@ html:not(.js) .share-copy{display:none}
 })();
 </script>
 </body>
+</html>
 </html>
