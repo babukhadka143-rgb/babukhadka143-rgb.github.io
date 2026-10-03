@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Share image maker</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hind:wght@400;600;700&family=Noto+Serif+Devanagari:wght@400;600;700&display=swap">
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;padding:20px;background:#163425;color:#eef3ea;font-family:"Hind","Noto Sans Devanagari",system-ui,sans-serif;line-height:1.6}
+  main{max-width:760px;margin:0 auto}
+  h1{font-size:1.6rem;margin:0 0 8px}
+  h2{font-size:1.2rem;margin:0 0 10px}
+  p{margin:0 0 12px}
+  ol{margin:0 0 24px;padding-left:1.3em}
+  .card{background:#1e4332;border:1px solid rgba(238,243,234,.14);border-radius:18px;padding:18px;margin-bottom:22px}
+  .out{display:block;width:100%;height:auto;border-radius:12px;background:#0d1612;aspect-ratio:1200/630}
+  .row{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px;align-items:center}
+  button,a.btn{font:inherit;font-weight:700;background:#f2a93b;color:#1a1204;border:0;border-radius:999px;padding:12px 22px;text-decoration:none;cursor:pointer}
+  button:disabled{opacity:.5;cursor:default}
+  details{margin-top:14px}
+  summary{cursor:pointer;font-weight:600}
+  label{display:block;margin-top:10px;font-size:.9rem;color:#a7b7ac}
+  input,textarea{width:100%;font:inherit;color:#162319;background:#f1f5ec;border:0;border-radius:10px;padding:10px 12px}
+  textarea{min-height:90px}
+  .note{color:#ffc15e}
+  code{background:rgba(0,0,0,.25);padding:1px 6px;border-radius:6px}
+</style>
+</head>
+<body>
+<main>
+  <h1>Share image maker</h1>
+  <p>This page draws the large preview picture that Facebook shows for each article, using the photos already on your website.</p>
+  <ol>
+    <li>Wait a few seconds until both pictures appear below.</li>
+    <li>Tap <strong>Download</strong> under each picture. (If the download doesn&rsquo;t start, press and hold the picture and choose Save.)</li>
+    <li>Upload the two downloaded files to your GitHub repository, next to <code>index.html</code>. Keep their names exactly.</li>
+  </ol>
+  <p id="status" class="note" role="status"></p>
+
+  <section class="card" id="card-flood">
+    <h2>Flood article</h2>
+    <img class="out" id="out-flood" alt="Share image preview for the flood article">
+    <div class="row">
+      <button type="button" data-download="flood" disabled>Download og-bhote-koshi-flood.jpg</button>
+    </div>
+    <details>
+      <summary>Edit the text on this picture</summary>
+      <label for="t-flood">Title</label>
+      <textarea id="t-flood"></textarea>
+      <label for="s-flood">Short summary</label>
+      <textarea id="s-flood"></textarea>
+    </details>
+  </section>
+
+  <section class="card" id="card-saiya">
+    <h2>Saiya article</h2>
+    <img class="out" id="out-saiya" alt="Share image preview for the Saiya article">
+    <div class="row">
+      <button type="button" data-download="saiya" disabled>Download og-saiya.jpg</button>
+    </div>
+    <details>
+      <summary>Edit the text on this picture</summary>
+      <label for="t-saiya">Title</label>
+      <textarea id="t-saiya"></textarea>
+      <label for="s-saiya">Short summary</label>
+      <textarea id="s-saiya"></textarea>
+    </details>
+  </section>
+</main>
+
+<script>
+(function(){
+  var W=1200,H=630;
+  var FONT='"Noto Serif Devanagari","Hind",Georgia,"Times New Roman",serif';
+
+  var AUTHOR={
+    name:'Pradip Babu Khadka',
+    role:'B.Sc. Agriculture student, AFU Nepal',
+    photo:'IMG_9766.jpeg',
+    site:'babukhadka143-rgb.github.io'
+  };
+
+  var CARDS=[
+    {
+      key:'flood',
+      file:'og-bhote-koshi-flood.jpg',
+      bg:'IMG_0134.jpeg',
+      title:'बाढीपछि, किसानले के रोप्ने?',
+      summary:'बाढीपछि कृषि पुनरुत्थान गर्दा बाली तथा प्रजाति विविधता, किसानको लाभ, बीउ प्रणाली, बजार र जलवायु उत्थानशीलतालाई कसरी जोड्न सकिन्छ भन्नेबारे यस लेखले चर्चा गर्छ।'
+    },
+    {
+      key:'saiya',
+      file:'og-saiya.jpg',
+      bg:'IMG_0026.jpeg',
+      title:'सैयाँ (Saiya): सुदूरपश्चिमको परम्परागत खाजा',
+      summary:'कोदो वा चामलको पिठोबाट घ्यूमा भुटेर बनाइने सुदूरपश्चिम नेपालको परम्परागत खाजा, यसको विधि र स्थानीय कृषि-संस्कृतिसँगको सम्बन्ध।'
+    }
+  ];
+
+  var statusEl=document.getElementById('status');
+  var blobs={};
+  var images={};
+
+  function loadImg(src){
+    return new Promise(function(resolve){
+      var i=new Image();
+      i.onload=function(){resolve(i);};
+      i.onerror=function(){resolve(null);};
+      i.src=src+'?v='+Date.now();
+    });
+  }
+
+  function cover(ctx,img,x,y,w,h,fx,fy){
+    var r=Math.max(w/img.width,h/img.height);
+    var sw=w/r, sh=h/r;
+    ctx.drawImage(img,(img.width-sw)*fx,(img.height-sh)*fy,sw,sh,x,y,w,h);
+  }
+
+  function roundRect(ctx,x,y,w,h,r){
+    ctx.beginPath();
+    ctx.moveTo(x+r,y);
+    ctx.arcTo(x+w,y,x+w,y+h,r);
+    ctx.arcTo(x+w,y+h,x,y+h,r);
+    ctx.arcTo(x,y+h,x,y,r);
+    ctx.arcTo(x,y,x+w,y,r);
+    ctx.closePath();
+  }
+
+  function wrap(ctx,text,maxW){
+    var words=text.split(/\s+/).filter(Boolean);
+    var lines=[], line='';
+    words.forEach(function(w){
+      var t=line?line+' '+w:w;
+      if(ctx.measureText(t).width>maxW && line){ lines.push(line); line=w; }
+      else{ line=t; }
+    });
+    if(line) lines.push(line);
+    return lines;
+  }
+
+  function draw(card){
+    var c=document.createElement('canvas');
+    c.width=W; c.height=H;
+    var ctx=c.getContext('2d');
+    var bg=images[card.bg];
+    var photo=images[AUTHOR.photo];
+
+    /* background photo, darkened */
+    ctx.fillStyle='#163425';
+    ctx.fillRect(0,0,W,H);
+    if(bg){ cover(ctx,bg,0,0,W,H,0.5,0.35); }
+    ctx.fillStyle='rgba(8,24,16,0.74)';
+    ctx.fillRect(0,0,W,H);
+    var g=ctx.createLinearGradient(0,0,W,0);
+    g.addColorStop(0,'rgba(8,24,16,0.55)');
+    g.addColorStop(1,'rgba(8,24,16,0)');
+    ctx.fillStyle=g;
+    ctx.fillRect(0,0,W,H);
+
+    ctx.textBaseline='top';
+    ctx.textAlign='left';
+    ctx.fillStyle='#ffffff';
+
+    /* title */
+    var textW=740, x0=48, y=54;
+    var size=66, lines;
+    for(; size>=34; size-=2){
+      ctx.font='700 '+size+'px '+FONT;
+      lines=wrap(ctx,card.title,textW);
+      if(lines.length<=3) break;
+    }
+    var lh=Math.round(size*1.32);
+    lines.forEach(function(l,i){ ctx.fillText(l,x0,y+i*lh); });
+    y+=lines.length*lh+22;
+
+    /* summary */
+    var ssize=24, slh=Math.round(ssize*1.7), maxY=452;
+    ctx.font='400 '+ssize+'px '+FONT;
+    ctx.fillStyle='rgba(255,255,255,0.88)';
+    var sl=wrap(ctx,card.summary,textW);
+    var maxLines=Math.max(1,Math.floor((maxY-y)/slh));
+    if(sl.length>maxLines){
+      sl=sl.slice(0,maxLines);
+      var last=sl[maxLines-1];
+      while(last.length>1 && ctx.measureText(last+'…').width>textW){ last=last.slice(0,-1); }
+      sl[maxLines-1]=last.replace(/\s+$/,'')+'…';
+    }
+    sl.forEach(function(l,i){ ctx.fillText(l,x0,y+i*slh); });
+
+    /* author photo (rounded square) + name */
+    var ps=320, px=836, py=120;
+    ctx.save();
+    roundRect(ctx,px,py,ps,ps,16);
+    ctx.clip();
+    if(photo){ cover(ctx,photo,px,py,ps,ps,0.5,0.2); }
+    else{ ctx.fillStyle='#285641'; ctx.fillRect(px,py,ps,ps); }
+    ctx.restore();
+    ctx.lineWidth=4;
+    ctx.strokeStyle='rgba(255,255,255,0.9)';
+    roundRect(ctx,px,py,ps,ps,16);
+    ctx.stroke();
+
+    ctx.textAlign='center';
+    ctx.fillStyle='#ffffff';
+    ctx.font='700 32px '+FONT;
+    ctx.fillText(AUTHOR.name,px+ps/2,py+ps+22);
+    ctx.fillStyle='rgba(255,255,255,0.78)';
+    ctx.font='400 20px '+FONT;
+    ctx.fillText(AUTHOR.role,px+ps/2,py+ps+66);
+
+    /* site badge (bottom-left) */
+    var bx=112, by=534, br=62;
+    ctx.beginPath();
+    ctx.arc(bx,by,br,0,Math.PI*2);
+    ctx.fillStyle='#ffffff';
+    ctx.fill();
+    ctx.textAlign='center';
+    ctx.textBaseline='middle';
+    ctx.font='44px "Segoe UI Emoji","Apple Color Emoji","Noto Color Emoji",sans-serif';
+    ctx.fillStyle='#1b4d33';
+    ctx.fillText('\uD83C\uDF3E',bx,by-12);
+    ctx.font='700 14px "Hind",Arial,sans-serif';
+    ctx.fillText('AGRI BLOG',bx,by+30);
+
+    /* site address */
+    ctx.textAlign='right';
+    ctx.textBaseline='alphabetic';
+    ctx.fillStyle='rgba(255,255,255,0.8)';
+    ctx.font='400 20px "Hind",Arial,sans-serif';
+    ctx.fillText(AUTHOR.site,W-40,H-34);
+
+    return c;
+  }
+
+  function render(card){
+    var c=draw(card);
+    return new Promise(function(resolve){
+      try{
+        c.toBlob(function(b){
+          if(!b){ resolve(false); return; }
+          if(blobs[card.key]){ URL.revokeObjectURL(blobs[card.key].url); }
+          var url=URL.createObjectURL(b);
+          blobs[card.key]={blob:b,url:url};
+          document.getElementById('out-'+card.key).src=url;
+          document.querySelector('[data-download="'+card.key+'"]').disabled=false;
+          resolve(true);
+        },'image/jpeg',0.9);
+      }catch(err){
+        resolve(false);
+      }
+    });
+  }
+
+  function download(card){
+    var item=blobs[card.key];
+    if(!item) return;
+    var a=document.createElement('a');
+    a.href=item.url;
+    a.download=card.file;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  }
+
+  var timers={};
+  function bindEdit(card){
+    var t=document.getElementById('t-'+card.key);
+    var s=document.getElementById('s-'+card.key);
+    t.value=card.title; s.value=card.summary;
+    function onEdit(){
+      clearTimeout(timers[card.key]);
+      timers[card.key]=setTimeout(function(){
+        card.title=t.value; card.summary=s.value;
+        render(card);
+      },250);
+    }
+    t.addEventListener('input',onEdit);
+    s.addEventListener('input',onEdit);
+    document.querySelector('[data-download="'+card.key+'"]').addEventListener('click',function(){ download(card); });
+  }
+
+  function start(){
+    var wanted=[AUTHOR.photo].concat(CARDS.map(function(c){return c.bg;}));
+    var fonts=[
+      document.fonts.load('700 40px "Noto Serif Devanagari"','बाढी'),
+      document.fonts.load('400 24px "Noto Serif Devanagari"','बाढी'),
+      document.fonts.load('700 14px "Hind"','Aa')
+    ];
+    var fontsDone=Promise.all(fonts).catch(function(){});
+    var imgsDone=Promise.all(wanted.map(function(src){
+      return loadImg(src).then(function(img){ images[src]=img; });
+    }));
+    Promise.all([fontsDone,imgsDone]).then(function(){
+      return document.fonts.ready;
+    }).then(function(){
+      var missing=wanted.filter(function(s){return !images[s];});
+      CARDS.forEach(bindEdit);
+      return Promise.all(CARDS.map(render)).then(function(results){
+        if(results.some(function(r){return !r;})){
+          statusEl.textContent='The picture could not be saved. Please open this page from your website address (https://babukhadka143-rgb.github.io/card-maker.html), not from a file on your phone.';
+        }else if(missing.length){
+          statusEl.textContent='Some photos were not found on the site ('+missing.join(', ')+'). The picture still works, but it will look plainer until those files are uploaded.';
+        }
+      });
+    });
+  }
+
+  start();
+})();
+</script>
+</body>
+</html>
