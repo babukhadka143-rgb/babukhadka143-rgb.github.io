@@ -189,26 +189,29 @@
     }
     sl.forEach(function(l,i){ ctx.fillText(l,x0,y+i*slh); });
 
-    /* author photo (rounded square) + name */
-    var ps=320, px=836, py=120;
+    /* author photo (round) + name */
+    var pr=150, pcx=996, pcy=262;
     ctx.save();
-    roundRect(ctx,px,py,ps,ps,16);
+    ctx.beginPath();
+    ctx.arc(pcx,pcy,pr,0,Math.PI*2);
+    ctx.closePath();
     ctx.clip();
-    if(photo){ cover(ctx,photo,px,py,ps,ps,0.5,0.2); }
-    else{ ctx.fillStyle='#285641'; ctx.fillRect(px,py,ps,ps); }
+    if(photo){ cover(ctx,photo,pcx-pr,pcy-pr,pr*2,pr*2,0.5,0.2); }
+    else{ ctx.fillStyle='#285641'; ctx.fillRect(pcx-pr,pcy-pr,pr*2,pr*2); }
     ctx.restore();
-    ctx.lineWidth=4;
-    ctx.strokeStyle='rgba(255,255,255,0.9)';
-    roundRect(ctx,px,py,ps,ps,16);
+    ctx.lineWidth=5;
+    ctx.strokeStyle='rgba(255,255,255,0.95)';
+    ctx.beginPath();
+    ctx.arc(pcx,pcy,pr,0,Math.PI*2);
     ctx.stroke();
 
     ctx.textAlign='center';
     ctx.fillStyle='#ffffff';
     ctx.font='700 32px '+FONT;
-    ctx.fillText(AUTHOR.name,px+ps/2,py+ps+22);
+    ctx.fillText(AUTHOR.name,pcx,pcy+pr+26);
     ctx.fillStyle='rgba(255,255,255,0.78)';
     ctx.font='400 20px '+FONT;
-    ctx.fillText(AUTHOR.role,px+ps/2,py+ps+66);
+    ctx.fillText(AUTHOR.role,pcx,pcy+pr+70);
 
     /* site badge (bottom-left) */
     var bx=112, by=534, br=62;
@@ -311,4 +314,5 @@
 })();
 </script>
 </body>
+</html>
 </html>
