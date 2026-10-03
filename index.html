@@ -369,6 +369,8 @@ ul,ol{margin:0}
 }
 .share-btn:hover{background:var(--ember);border-color:var(--ember);color:#1a1204}
 html:not(.js) .share-copy{display:none}
+.share-btn[hidden]{display:none}
+.share.has-native .share-fb,.share.has-native .share-x{display:none}
 .post .share-label{color:var(--ink-muted)}
 .post .share-btn{color:var(--green-dark);border-color:var(--paper-line)}
 .post .share-btn:hover{background:var(--green);border-color:var(--green);color:#fff}
@@ -444,7 +446,7 @@ html:not(.js) .share-copy{display:none}
 
 <header class="site-header">
   <div class="wrap bar">
-    <a class="brand" href="#home"><img class="brand-photo" src="IMG_9766.jpeg" alt="" width="46" height="46" onerror="this.hidden=true">Pradip Babu Khadka</a>
+    <a class="brand" href="#home"><img class="brand-photo" src="IMG_7838.jpeg" alt="" width="46" height="46" onerror="this.hidden=true">Pradip Babu Khadka</a>
     <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
     <nav id="site-nav" aria-label="Main navigation">
       <ul class="nav-list">
@@ -543,8 +545,9 @@ html:not(.js) .share-copy{display:none}
           
             <div class="share" lang="en">
               <span class="share-label">Share</span>
-              <a class="share-btn" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fbabukhadka143-rgb.github.io%2Fbhote-koshi-flood.html" target="_blank" rel="noopener noreferrer">Facebook<span class="sr-only"> (opens in a new tab)</span></a>
-              <a class="share-btn" href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fbabukhadka143-rgb.github.io%2Fbhote-koshi-flood.html" target="_blank" rel="noopener noreferrer">X<span class="sr-only"> (opens in a new tab)</span></a>
+          <button class="share-btn share-native" type="button" hidden>Share&hellip;</button>
+              <a class="share-btn share-fb" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fbabukhadka143-rgb.github.io%2Fbhote-koshi-flood.html" target="_blank" rel="noopener noreferrer">Facebook<span class="sr-only"> (opens in a new tab)</span></a>
+              <a class="share-btn share-x" href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fbabukhadka143-rgb.github.io%2Fbhote-koshi-flood.html" target="_blank" rel="noopener noreferrer">X<span class="sr-only"> (opens in a new tab)</span></a>
               <button class="share-btn share-copy" type="button" data-copy="https://babukhadka143-rgb.github.io/bhote-koshi-flood.html">Copy link</button>
               <span class="sr-only" role="status"></span>
             </div>
@@ -570,8 +573,9 @@ html:not(.js) .share-copy{display:none}
           
             <div class="share" lang="en">
               <span class="share-label">Share</span>
-              <a class="share-btn" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fbabukhadka143-rgb.github.io%2Fsaiya.html" target="_blank" rel="noopener noreferrer">Facebook<span class="sr-only"> (opens in a new tab)</span></a>
-              <a class="share-btn" href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fbabukhadka143-rgb.github.io%2Fsaiya.html" target="_blank" rel="noopener noreferrer">X<span class="sr-only"> (opens in a new tab)</span></a>
+          <button class="share-btn share-native" type="button" hidden>Share&hellip;</button>
+              <a class="share-btn share-fb" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fbabukhadka143-rgb.github.io%2Fsaiya.html" target="_blank" rel="noopener noreferrer">Facebook<span class="sr-only"> (opens in a new tab)</span></a>
+              <a class="share-btn share-x" href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fbabukhadka143-rgb.github.io%2Fsaiya.html" target="_blank" rel="noopener noreferrer">X<span class="sr-only"> (opens in a new tab)</span></a>
               <button class="share-btn share-copy" type="button" data-copy="https://babukhadka143-rgb.github.io/saiya.html">Copy link</button>
               <span class="sr-only" role="status"></span>
             </div>
@@ -591,7 +595,7 @@ html:not(.js) .share-copy{display:none}
         <p class="post-sub">नेपालमा कृषि-जैविक विविधतामार्फत विपद्पछिको कृषि पुनरुत्थानबारे पुनर्विचार</p>
 
         <div class="byline" lang="en">
-          <img class="byline-photo" src="IMG_9766.jpeg" alt="" width="48" height="48" onerror="this.hidden=true">
+          <img class="byline-photo" src="IMG_7838.jpeg" alt="" width="48" height="48" onerror="this.hidden=true">
           <p class="byline-text">By <a rel="author" href="#about">Pradip Babu Khadka</a>
             <span class="byline-role">B.Sc. Agriculture student, Agriculture and Forestry University, Nepal</span></p>
         </div>
@@ -739,7 +743,7 @@ html:not(.js) .share-copy{display:none}
 
       <div class="post-foot" lang="en">
         <aside class="author-box" aria-label="About the author">
-          <img class="author-photo" src="IMG_9766.jpeg" alt="" width="72" height="72" loading="lazy" onerror="this.hidden=true">
+          <img class="author-photo" src="IMG_7838.jpeg" alt="" width="72" height="72" loading="lazy" onerror="this.hidden=true">
           <div>
             <p class="author-name">Written by <strong>Pradip Babu Khadka</strong></p>
             <p>B.Sc. Agriculture student at Agriculture and Forestry University (AFU), Nepal, writing about agro-biodiversity, climate resilience and traditional food.</p>
@@ -748,8 +752,9 @@ html:not(.js) .share-copy{display:none}
         </aside>
         <div class="share" lang="en">
           <span class="share-label">Share</span>
-          <a class="share-btn" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fbabukhadka143-rgb.github.io%2Fbhote-koshi-flood.html" target="_blank" rel="noopener noreferrer">Facebook<span class="sr-only"> (opens in a new tab)</span></a>
-          <a class="share-btn" href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fbabukhadka143-rgb.github.io%2Fbhote-koshi-flood.html" target="_blank" rel="noopener noreferrer">X<span class="sr-only"> (opens in a new tab)</span></a>
+          <button class="share-btn share-native" type="button" hidden>Share&hellip;</button>
+          <a class="share-btn share-fb" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fbabukhadka143-rgb.github.io%2Fbhote-koshi-flood.html" target="_blank" rel="noopener noreferrer">Facebook<span class="sr-only"> (opens in a new tab)</span></a>
+          <a class="share-btn share-x" href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fbabukhadka143-rgb.github.io%2Fbhote-koshi-flood.html" target="_blank" rel="noopener noreferrer">X<span class="sr-only"> (opens in a new tab)</span></a>
           <button class="share-btn share-copy" type="button" data-copy="https://babukhadka143-rgb.github.io/bhote-koshi-flood.html">Copy link</button>
           <span class="sr-only" role="status"></span>
         </div>
@@ -767,7 +772,7 @@ html:not(.js) .share-copy{display:none}
         <h2>सैयाँ (Saiya): सुदूरपश्चिमको परम्परागत खाजा</h2>
 
         <div class="byline" lang="en">
-          <img class="byline-photo" src="IMG_9766.jpeg" alt="" width="48" height="48" onerror="this.hidden=true">
+          <img class="byline-photo" src="IMG_7838.jpeg" alt="" width="48" height="48" onerror="this.hidden=true">
           <p class="byline-text">By <a rel="author" href="#about">Pradip Babu Khadka</a>
             <span class="byline-role">B.Sc. Agriculture student, Agriculture and Forestry University, Nepal</span></p>
         </div>
@@ -874,7 +879,7 @@ html:not(.js) .share-copy{display:none}
 
       <div class="post-foot" lang="en">
         <aside class="author-box" aria-label="About the author">
-          <img class="author-photo" src="IMG_9766.jpeg" alt="" width="72" height="72" loading="lazy" onerror="this.hidden=true">
+          <img class="author-photo" src="IMG_7838.jpeg" alt="" width="72" height="72" loading="lazy" onerror="this.hidden=true">
           <div>
             <p class="author-name">Written by <strong>Pradip Babu Khadka</strong></p>
             <p>B.Sc. Agriculture student at Agriculture and Forestry University (AFU), Nepal, writing about agro-biodiversity, climate resilience and traditional food.</p>
@@ -883,8 +888,9 @@ html:not(.js) .share-copy{display:none}
         </aside>
         <div class="share" lang="en">
           <span class="share-label">Share</span>
-          <a class="share-btn" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fbabukhadka143-rgb.github.io%2Fsaiya.html" target="_blank" rel="noopener noreferrer">Facebook<span class="sr-only"> (opens in a new tab)</span></a>
-          <a class="share-btn" href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fbabukhadka143-rgb.github.io%2Fsaiya.html" target="_blank" rel="noopener noreferrer">X<span class="sr-only"> (opens in a new tab)</span></a>
+          <button class="share-btn share-native" type="button" hidden>Share&hellip;</button>
+          <a class="share-btn share-fb" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fbabukhadka143-rgb.github.io%2Fsaiya.html" target="_blank" rel="noopener noreferrer">Facebook<span class="sr-only"> (opens in a new tab)</span></a>
+          <a class="share-btn share-x" href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fbabukhadka143-rgb.github.io%2Fsaiya.html" target="_blank" rel="noopener noreferrer">X<span class="sr-only"> (opens in a new tab)</span></a>
           <button class="share-btn share-copy" type="button" data-copy="https://babukhadka143-rgb.github.io/saiya.html">Copy link</button>
           <span class="sr-only" role="status"></span>
         </div>
@@ -1073,6 +1079,23 @@ html:not(.js) .share-copy{display:none}
     cards.forEach(function(c){feed.appendChild(c);});
   }
 
+  /* Phone share sheet: lets you pick the Facebook app (or WhatsApp, Messenger...) directly */
+  if(navigator.share){
+    [].forEach.call(document.querySelectorAll('.share'),function(box){
+      var nb=box.querySelector('.share-native');
+      var cp=box.querySelector('.share-copy');
+      if(!nb||!cp) return;
+      var holder=box.closest('.tile, .post');
+      var h=holder&&holder.querySelector('h3 a, h2');
+      var title=h?h.textContent.trim():document.title;
+      nb.hidden=false;
+      box.classList.add('has-native');
+      nb.addEventListener('click',function(){
+        navigator.share({title:title,url:cp.getAttribute('data-copy')}).catch(function(){});
+      });
+    });
+  }
+
   /* Copy-link buttons */
   [].forEach.call(document.querySelectorAll('.share-copy'),function(b){
     b.addEventListener('click',function(){
@@ -1111,5 +1134,4 @@ html:not(.js) .share-copy{display:none}
 })();
 </script>
 </body>
-</html>
 </html>
